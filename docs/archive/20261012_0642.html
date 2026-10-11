@@ -1,0 +1,655 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv 论文速递</title><style>
+:root {
+  --bg:#f8fafc; --card:#ffffff; --text:#0f172a; --muted:#667085; --border:#e5e7eb; --acc:#2563eb;
+}
+:root[data-theme="dark"] {
+  --bg:#0b0f17; --card:#111827; --text:#e5e7eb; --muted:#9ca3af; --border:#1f2937; --acc:#2563eb;
+}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);
+  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.6;}
+.container{max-width:900px;margin:0 auto;padding:18px;}
+.header{display:flex;gap:10px;justify-content:space-between;align-items:center;margin:8px 0 16px;flex-wrap:wrap}
+h1{font-size:22px;margin:0}
+.badge{font-size:12px;color:#111827;background:var(--acc);padding:2px 8px;border-radius:999px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px 18px;margin:14px 0;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.title{font-weight:700;margin:0 0 6px 0;font-size:18px}
+.meta-line{color:var(--muted);font-size:13px;margin:2px 0}
+.links a{color:var(--acc);text-decoration:none;margin-right:12px}
+.detail{margin-top:10px;background:rgba(2,6,23,.03);border:1px solid var(--border);border-radius:10px;padding:8px 10px}
+summary{cursor:pointer;color:var(--acc)}
+.mono{white-space:pre-wrap;background:rgba(2,6,23,.03);border:1px solid var(--border);padding:10px;border-radius:10px}
+.row{display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width: 860px) {
+  .row-2{grid-template-columns:1fr 1fr}
+}
+.footer{color:var(--muted);font-size:13px;margin:20px 0 10px}
+.hr{height:1px;background:var(--border);margin:14px 0}
+.history-list a{display:block;color:var(--acc);text-decoration:none;margin:4px 0}
+.controls{display:flex;gap:8px;align-items:center}
+.btn{border:1px solid var(--border);background:var(--card);padding:6px 10px;border-radius:10px;cursor:pointer;color:var(--text)}
+.btn:hover{border-color:var(--acc)}
+</style>
+<script>
+(function() {
+  const root = document.documentElement;
+  function apply(t) {
+    if (t==='dark') root.setAttribute('data-theme','dark');
+    else if (t==='light') root.removeAttribute('data-theme');
+    else {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        root.setAttribute('data-theme','dark');
+      else root.removeAttribute('data-theme');
+    }
+  }
+  let t = localStorage.getItem('theme') || 'light';
+  if (!['light','dark','auto'].includes(t)) t='light';
+  apply(t);
+  window.__toggleTheme = function() {
+    let cur = localStorage.getItem('theme') || 'light';
+    if (cur==='light') cur='dark';
+    else if (cur==='dark') cur='auto';
+    else cur='light';
+    localStorage.setItem('theme', cur);
+    apply(cur);
+    const el=document.getElementById('theme-label');
+    if(el) el.textContent = cur.toUpperCase();
+  }
+  window.__expandAll = function(open) {
+    document.querySelectorAll('details').forEach(d => d.open = !!open);
+  }
+})();
+</script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>arXiv 论文速递</h1>
+      <div style="display:flex;gap:10px;align-items:center">
+        
+<div class="controls">
+  <button class="btn" onclick="__toggleTheme()">Theme: <span id="theme-label" style="margin-left:6px">AUTO</span></button>
+  <button class="btn" onclick="__expandAll(true)">Expand All</button>
+  <button class="btn" onclick="__expandAll(false)">Collapse All</button>
+</div>
+
+        <span class="badge">2026-10-12 06:42</span>
+      </div>
+    </div>
+    <div class="hr"></div>
+    <div>Snapshot: 20261012_0642</div>
+    <div class="row"><div class="card">
+<div class="title">Same Outcome, Different Evidence: Intent Recovery in LLM Safety Evaluation</div>
+<div class="meta-line">Authors: Haitong Jiang, Chunlin Liu, Sihan Tang, Chan Wu, Xiaoqing Su, Yuhong Feng</div>
+<div class="meta-line">First: 2026-10-08T11:50:32+00:00 · Latest: 2026-10-08T11:50:32+00:00</div>
+<div class="meta-line">Comments: 12 pages, 2 figures. Code and experiment inputs: https://github.com/kevinjiang0121-cyber/IRIS</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.11766v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.11766v1">PDF</a> · <a href="https://github.com/kevinjiang0121-cyber/IRIS">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Safety evaluations of large language models commonly summarize harmful-output behavior with attack success rate (ASR). Yet the same non-harmful outcome can arise for very different reasons. A model may recover a harmful task and refuse it, fail to recover the task, or respond to something else entirely. Distinguishing these cases becomes especially important under intent-obscuring prompts, where a low ASR does not reveal whether the evaluated task was actually engaged. To make this distinction explicit, we pair ASR with operative understanding rate (UR), which measures whether a response both identifies the evaluated task and treats it as the task to be answered. Across interfaces, this paired view reveals substantial variation hidden by ASR: similar ASR values can correspond to sharply different recovery rates. Controlled English reconstructions show that recovery consistently improves as compressed prompts become more explicit, whereas ASR does not follow the same pattern. A complementary contrast comes from FormalLogic, where high recovery can still coincide with frequent harmful assistance. Together, these results show that non-harmful outcomes are not equally informative about model safety, motivating the joint reporting of intent recovery and ASR in LLM safety evaluation. Code and experiment inputs are available at https://github.com/kevinjiang0121-cyber/IRIS.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Safety evaluations of large language models commonly summarize harmful-output behavior with attack success rate (ASR).</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Pretext: Defeating Malicious Skill Detection Frameworks for AI Agents</div>
+<div class="meta-line">Authors: Tobias Kaiser, Aritra Dhar</div>
+<div class="meta-line">Venue: NeurIPS 2026</div>
+<div class="meta-line">First: 2026-09-30T12:26:33+00:00 · Latest: 2026-10-08T08:23:49+00:00</div>
+<div class="meta-line">Comments: Accepted in AIWild@NeurIPS 2026</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.39607v2">Abs</a> · <a href="https://arxiv.org/pdf/2609.39607v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Skills extend an agent&#x27;s capabilities by injecting instructions and information into the context, and are widely used by agents such as OpenClaw and Claude Code. Prior work shows third-party marketplaces host malicious skills that give attackers direct influence over the victim&#x27;s agent. The emerging defense scans skills before installation, pairing deterministic static checks with an LLM-based semantic judge, as in NVIDIA&#x27;s SkillSpector. We show that such defenses fall to an attacker who knows the detector. Our white-box LLM attacker, Pretext, iteratively crafts skills that evade detection while still delivering the payload and performing the benign task: moving the payload from code into natural language leaves static analysis inert, while framing it as the skill&#x27;s legitimate purpose and splitting instructions across files keeps the LLM stage below its blocking threshold. Across three open-source models, Pretext achieves up to 97\% and 77\% against a frozen detector and a co-adaptive one, respectively, revealing major gaps in current skill scanners.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Skills extend an agent&#x27;s capabilities by injecting instructions and information into the context, and are widely used by agents such as OpenClaw and Claude Code.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">TACS: Trajectory-Aware Candidate Selection for LLM Jailbreak Suffix Optimization</div>
+<div class="meta-line">Authors: Shiliang Xiao</div>
+<div class="meta-line">First: 2026-08-30T05:18:28+00:00 · Latest: 2026-10-07T16:21:07+00:00</div>
+<div class="meta-line">Comments: We identified an error in the theoretical analysis, which affects the validity of the main conclusions of the manuscript. Since the current version does not adequately support this conclusion, we have decided to withdraw the paper</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2608.29564v3">Abs</a> · <a href="https://arxiv.org/pdf/2608.29564v3">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Gradient-based jailbreak suffix optimization methods typically update the suffix by retaining the candidate with the lowest current loss. We show that this seemingly natural design is fundamentally myopic: candidates that look better under the current-step proxy often fail to produce better jailbreak outcomes later in the search, revealing a form of selection-stage reward hacking. This suggests that candidate selection, rather than candidate generation alone, is a hidden bottleneck in suffix optimization. To address this issue, we propose TACS, a trajectory-aware candidate selection framework for jailbreak suffix optimization. Instead of selecting candidates solely by their immediate loss, TACS augments per-step evaluation with a trajectory-aware proxy and stabilizes selection with reference-policy regularization and a discriminator-estimated chi-squared correction, encouraging choices that remain effective beyond the current step. Experiments on HarmBench show that TACS consistently outperforms strong baselines under the same search budget, substantially improving attack success rates while exhibiting more stable optimization behavior throughout the search. Our findings highlight that mitigating selection-stage reward hacking caused by myopic candidate selection is critical for improving jailbreak suffix optimization.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Gradient-based jailbreak suffix optimization methods typically update the suffix by retaining the candidate with the lowest current loss.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">PatchBench: Measuring Collateral Damage in Activation Patching</div>
+<div class="meta-line">Authors: Alexi Canesse, Mathis Le Bail, Maël Jenny, Clément Elliker, Mahammed El Sharkawy, Sonia Vanier</div>
+<div class="meta-line">Venue: NeurIPS 2026</div>
+<div class="meta-line">First: 2026-10-07T15:43:28+00:00 · Latest: 2026-10-07T15:43:28+00:00</div>
+<div class="meta-line">Comments: Accepted to NeurIPS 2026 (Datasets and Benchmarks Track)</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.10276v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.10276v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">An LLM safety patch can pass a benchmark while still being a poor repair. This risk is especially acute for jailbreak repairs, where the goal is to correct a specific unsafe behaviour without changing unrelated behaviours. A patch may block exact evaluation prompts yet fail on close harmful variants, or suppress harmful behaviour by over-refusing benign prompts that share its wording or structure. Existing protocols primarily test whether models can be broken, while aggregate metrics (attack success, refusal rates, global capability) cannot distinguish selective repairs from broader local suppression. To address this gap, we introduce PatchBench, a benchmark of empirically observed model-specific jailbreak failures inducing actionable harmful answers. Starting from 27,870 prompts from 37 public datasets, we curate 15,314 English prompts and query 8 open-source instruction-tuned models. Combining WildGuard filtering, pairwise Elo ranking, and manual verification, we retain a curated bank of 400 high-confidence jailbreak failures. We further introduce PatchBench-Local, an evaluation protocol testing whether a patch is behaviourally precise. For each harmful source prompt, PatchBench-Local generates three families of local neighbours: harmful variants preserving malicious intent, benign prompts with matched structure, and benign prompts reusing key harmful terms. It evaluates harmful-neighbour correction and benign-neighbour preservation, distinguishing selective repair from broader local suppression. Evaluating four activation steering methods with PatchBench-Local and MMLU shows that global capability can remain nearly unchanged while local benign regressions are severe, confirming aggregate metrics miss important collateral damage. PatchBench-Local provides a more precise basis for developing and comparing jailbreak repair methods.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">An LLM safety patch can pass a benchmark while still being a poor repair.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Dynamic Budget Allocation for LLM Evaluation under Hard Resource Constraints</div>
+<div class="meta-line">Authors: Shai Feldman, Yaniv Romano</div>
+<div class="meta-line">First: 2026-10-05T20:31:22+00:00 · Latest: 2026-10-05T20:31:22+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.07362v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.07362v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">We evaluate large language models (LLMs) in multi-turn interactions through their time-to-event: the number of interaction steps required to produce an event of interest, such as a successful jailbreak or agentic task completion. Under limited compute, interactions may be terminated before the event occurs, so that event times are only partially observed (censored). Existing allocation methods for calibrating time-to-event bounds satisfy the budget only in expectation and can exceed the available budget on a particular evaluation run. Enforcing a hard constraint is particularly challenging as the cost of a trajectory is initially unknown. We introduce Hard-budget Allocation with Reflow for Predictive calibration (HARP), a budget allocation that satisfies hard resource constraints and adaptively reallocates unused budget. We show how to use HARP to construct lower predictive bounds (LPBs) on the time-to-event and to estimate evaluation metrics such as the jailbreak rate on a fixed benchmark. Although HARP induces dependence in acquisition decisions across different trajectories, we prove that HARP never exceeds the target budget, that its LPBs have finite-sample coverage guarantees, and that its metric estimates are unbiased. Experiments on agentic task success, LLM jailbreaks, toxic content generation, and RAG hallucinations show that HARP achieves coverage close to the nominal level with low variance, while never exceeding the given budget.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">We evaluate large language models (LLMs) in multi-turn interactions through their time-to-event: the number of interaction steps required to produce an event of interest, such as a successful jailbreak or agentic task completion.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Local Sparsity Enables Unsupervised LLM Safety Detection</div>
+<div class="meta-line">Authors: Xin Chen, Gil Kur, Alexander Shevchenko, Andreas Krause</div>
+<div class="meta-line">First: 2026-09-17T12:23:04+00:00 · Latest: 2026-10-05T18:05:40+00:00</div>
+<div class="meta-line">Comments: Published at NeurIPS2026</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.20129v2">Abs</a> · <a href="https://arxiv.org/pdf/2609.20129v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Deployment-time safety methods for large language models (LLMs) are predominantly supervised and assume access to unsafe training data. Nevertheless, new attacks and harm categories regularly arise, not captured by models trained in such a supervised fashion. An alternative approach is to view this problem through the lens of anomaly detection, namely, to rely solely on modeling safe data and flagging out-of-distribution inputs. However, LLM activations lie in a high-dimensional space, raising concerns about whether anomaly detection is statistically feasible. We show that, under the linear representation hypothesis (LRH), there may indeed be hope. In the LRH concept space, which is typically recovered via a sparse autoencoder (SAE), nearby points share a small common active support. Using this local sparsity insight, we propose a framework for locally masked SAE-based anomaly detection, supported by theoretical justifications. We validate it on various architectures and datasets, including both capability-testing datasets and safety-specific datasets. Finally, when we allow algorithms to use 1% out-of-distribution data for calibration, locally sparse methods achieve near-optimal performance, demonstrating their ability to capture meaningful safety information while using only 1-2% of SAE neurons for computation.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Deployment-time safety methods for large language models (LLMs) are predominantly supervised and assume access to unsafe training data.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Agent MechSuits: Mechanistic Subspace Safety Steering for Multi-Turn CLI Agents</div>
+<div class="meta-line">Authors: Weidi Luo, Qiming Zhang, Yihao Quan, Mingyu Jin, Jie Cai, Chaowei Xiao, Jingcheng Niu, Zhen Xiang</div>
+<div class="meta-line">Venue: NeurIPS</div>
+<div class="meta-line">First: 2026-06-21T21:13:55+00:00 · Latest: 2026-10-05T17:21:29+00:00</div>
+<div class="meta-line">Comments: Accepted by NeurIPS&#x27;2026</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2606.22673v2">Abs</a> · <a href="https://arxiv.org/pdf/2606.22673v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Command-Line Interface (CLI) agents based on large language models (LLMs) demonstrate remarkable autonomous capabilities, but they also introduce significant safety and misuse risks during multi-turn interactions with external environments. Existing safety mechanisms mainly rely on external guardrails, which have a limited ability to perform fine-grained behavioral control during execution. Meanwhile, recent mechanistic interpretability methods for LLM safety are mostly confined to single-turn or jailbreak-style QA settings, limiting their ability to capture the evolving risk dynamics of multi-turn agent execution. In this paper, we investigate the safety of multi-turn CLI agents from an internal perspective. We propose Agent MechSuits (Mechanistic Subspace Intervention and Steering), a white-box defense framework that performs runtime safety detection and representation-level mitigation for CLI agents. Unlike conventional agent guardrails, Agent MechSuits detects harmful execution states from step-level hidden representations and mitigates unsafe behavior by intervening in a 10-dimensional subspace within a single layer. To support this research, we introduce the Mechanistic Agent Safety (MAS) benchmark, comprising comprehensively annotated multi-turn execution trajectories across 194 tasks using LLaMA-3.1-8B, Qwen-2.5-7B, and Gemma-2-9B. Extensive experiments show that Agent MechSuits achieves strong safety detection performance, provides preliminary evidence for lookahead risk anticipation, and substantially reduces harmful actions of the CLI agent, establishing a foundation for applying mechanistic interpretability to dynamic LLM agent safety.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Command-Line Interface (CLI) agents based on large language models (LLMs) demonstrate remarkable autonomous capabilities, but they also introduce significant safety and misuse risks during multi-turn interactions with external environments.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Beyond Refusal Patterns: Safe-Role Internalization for Robust and Generalizable LLM Safety Alignment</div>
+<div class="meta-line">Authors: Jinghao Pang, Jitai Hao, Qiang Huang, Zhaochun Ren, Jun Yu</div>
+<div class="meta-line">First: 2026-10-04T15:50:42+00:00 · Latest: 2026-10-04T15:50:42+00:00</div>
+<div class="meta-line">Comments: 27 pages,7 figures, under review</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.07023v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.07023v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Large Language Models (LLMs) have achieved remarkable capabilities but remain vulnerable to jailbreak attacks that elicit harmful or unsafe outputs. Existing safety alignment approaches, including Supervised Fine-Tuning (SFT) and Reinforcement Learning from Human Feedback (RLHF), often require substantial attack-specific supervision and computational resources, while remaining susceptible to shallow safety alignment and over-refusal. To address these challenges, we introduce SSRFT(Supervised Safe-Role Fine-Tuning), the first framework that reformulates safety alignment as the internalization of a predefined safe role. SSRFT constructs a Safe-Role Question-Answer (SRQA) dataset from psychometric questions, limited jailbreak prompts, and a safe-role description. Role-consistent responses are synthesized, validated, and expanded into diverse scenarios, enabling models to internalize safety-oriented values and principles rather than explicit refusal patterns. Experiments across multiple Base and Instruct models show that SSRFT achieves more robust and generalizable safety alignment than standard SFT. SSRFT shows substantially greater robustness to prefilling attacks and better generalization to unseen jailbreak domains, while reducing over-refusal on benign queries and preserving the model&#x27;s general capabilities. These results establish safe-role internalization as an effective alternative to refusal-centric safety alignment. Warning: This paper contains examples of harmful and toxic language.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Large Language Models (LLMs) have achieved remarkable capabilities but remain vulnerable to jailbreak attacks that elicit harmful or unsafe outputs.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">All you need to break LLMs are Black-Box, Adapting, Efficient, Transferable, Harmful, Applicable ... Attacks</div>
+<div class="meta-line">Authors: Vincent Limbach, Jonas Dornbusch, David Lüdke, Stephan Günnemann, Leo Schwinn</div>
+<div class="meta-line">First: 2026-06-02T13:39:15+00:00 · Latest: 2026-10-02T12:35:03+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2606.03647v2">Abs</a> · <a href="https://arxiv.org/pdf/2606.03647v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Accurately evaluating adversarial robustness is a longstanding challenge. A flawed attack design can inflate robustness estimates, making deployment risk assessment and defense comparison unreliable. Historically, standardized attacks such as AutoAttack have largely resolved this for image classifiers, providing a reliable evaluation baseline for systematic comparison across defenses. However, no equivalent exists for LLM jailbreak evaluation yet, where designing such an attack is considerably more difficult. A reliable attack must, among other things, be black-box compatible, applicable to arbitrary defense pipelines, and efficient, which no existing method jointly satisfies. We introduce Indirect Harmfulness Optimization (IHO), a masked diffusion language model attacker trained via iterative preference optimization against a harmfulness judge, requiring only black-box access to the target. The same method can be used without modification as a strong adapting attack on individual behaviors, or as an efficient amortized policy that transfers to held-out behaviors and unseen target models without fine-tuning. Even against layered defenses, such as GLM 5.3-flash served through a black-box API deploying an auxiliary detector, IHO improves attack success considerably over state-of-the-art approaches, without any defense-specific adaptation. Our results position IHO as a practical step toward the kind of standardized jailbreak evaluation that has improved reliability in the past. Code and models are available on GitHub and Hugging Face.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Accurately evaluating adversarial robustness is a longstanding challenge.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Scalable, Transferable Meta-network for Data Selection Requires a Different Loss (and Why the Obvious Choice is Problematic)</div>
+<div class="meta-line">Authors: Zilin Du, Bowen Yang, Boyang Albert Li</div>
+<div class="meta-line">First: 2026-10-01T17:23:29+00:00 · Latest: 2026-10-01T17:23:29+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.02092v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.02092v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Data selection is critical for training large language models on massive and heterogeneous corpora. Meta-learning for Training-data Selection offers a principled alternative to heuristic scoring by learning data weights from a target validation objective, but existing methods face a trade-off between fine-grained valuation and transferability to unseen data. A natural solution is to replace per-sample weights with a selection network. However, we find that directly incorporating such a network into existing MTS objectives leads to unstable optimization and poor generalization, caused by weight suppression and persistent reliance on easy-to-learn features. To address these issues, we propose Transferable Example Scoring and Selection (TESS), a scalable data-selection framework built on a Pointwise Value Matching objective (PVM). Experiments on LLM safety and targeted instruction tuning demonstrate strong transfer across datasets, from subsets to full corpora, and from smaller to larger models.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Data selection is critical for training large language models on massive and heterogeneous corpora.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">CHILLGuard: Towards Fine-Grained Chinese LLM Safety Guardrail with Scalable Data Construction and Model-aware Preference Alignment</div>
+<div class="meta-line">Authors: Wenbo Yu, Bohua Wang, Hao Fang, Kuofeng Gao, Jingru Zeng, Xiaochen Yang, Tianyi Zhang, Xiaoxiao Ma, Jiawei Kong, Hao Wu, Bin Chen, Shu-Tao Xia, Min Zhang</div>
+<div class="meta-line">Venue: EMNLP 2026</div>
+<div class="meta-line">First: 2026-06-13T16:57:51+00:00 · Latest: 2026-10-01T13:45:00+00:00</div>
+<div class="meta-line">Comments: accepted by EMNLP 2026 findings</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2606.15396v2">Abs</a> · <a href="https://arxiv.org/pdf/2606.15396v2">PDF</a> · <a href="https://github.com/cswbyu/CHILLGuard">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Malicious content generated from large language models (LLMs) could pose severe safety risks and ethical concerns. While existing LLM safety guardrails excel in English or multilingual settings, they lack adaptation to Chinese-specific regulatory policies, cultural context, and linguistic nuances, failing to support fine-grained risk classification for diverse deployment needs. In this paper, we introduce a 5-macro, 31-micro category fine-grained risk taxonomy for Chinese scenarios, and build CHILLGuard: a dedicated Chinese LLM content safety guardrail. To address the critical scarcity of high-quality annotated Chinese safety data, we propose a scalable multi-stage data construction pipeline: we expand multi-source corpus via retrieval-augmented generation, generate implicit harmful samples through prompt engineering rewriting, and refine high-quality data via multi-model voting-based label calibration. Based on this, we build CHILLGuardTrain, a large-scale training set with 405,007 samples, and CHILLGuardTest, a rigorously curated annotated test set with 51,745 samples. We then train CHILLGuard on CHILLGuardTrain under a generator-classifier collaborative framework via Model-aware Direct Preference Optimization. Extensive experiments under multiple settings demonstrate the state-of-the-art performance of CHILLGuard, e.g., a 15.92% relative improvement of F1 score over Qwen3Guard-8B-Strict on our benchmark. We release our resources at https://github.com/cswbyu/CHILLGuard.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Malicious content generated from large language models (LLMs) could pose severe safety risks and ethical concerns.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">In Vino Veritas and Vulnerabilities: Examining LLM Safety via Drunk Language Inducement</div>
+<div class="meta-line">Authors: Anudeex Shetty, Aditya Joshi, Salil S. Kanhere</div>
+<div class="meta-line">First: 2026-01-19T12:44:20+00:00 · Latest: 2026-10-01T12:14:18+00:00</div>
+<div class="meta-line">Comments: Accepted to INLG 2026</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2601.22169v2">Abs</a> · <a href="https://arxiv.org/pdf/2601.22169v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Humans are susceptible to undesirable behaviours and privacy leaks under the influence of alcohol. This paper investigates drunk language, i.e., text written under the influence of alcohol, as a driver for safety failures in large language models (LLMs). We investigate three mechanisms for inducing drunk language in LLMs: persona-based prompting, causal fine-tuning, and reinforcement-based post-training. When evaluated on 5 LLMs, we observe a higher susceptibility to jailbreaking on JailbreakBench (even in the presence of defences) and privacy leaks on ConfAIde, where both benchmarks are in English, as compared to the base LLMs as well as previously reported approaches. Via a robust combination of manual evaluation and LLM-based evaluators and analysis of error categories, our findings highlight a correspondence between human-intoxicated behaviour, and anthropomorphism in LLMs induced with drunk language. The simplicity and efficiency of our drunk language inducement approaches position them as potential counters for LLM safety tuning, highlighting significant risks to LLM safety.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Humans are susceptible to undesirable behaviours and privacy leaks under the influence of alcohol.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">False Floors: LLM Safety Routing Evaluations Break Under Distribution Shift</div>
+<div class="meta-line">Authors: Amit Singh Bhatti, Vishal Vaddina</div>
+<div class="meta-line">First: 2026-10-01T12:09:28+00:00 · Latest: 2026-10-01T12:09:28+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.01535v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.01535v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Safety routers send each request to one of several models and are judged against the best single model. A major routing benchmark picks that comparator on the evaluation data. In the benchmark&#x27;s own setting this is harmless, but under distribution shift it is not. On HELM Safety the selection cost is 0.003-0.030 of harm under random splits and 0.045-0.113 under held-out categories, comparable to the whole deficit attributed to routing, with its direction holding under either published judge alone. It rises seven- to ninefold on AgentDojo when suites are held out. Across seven safety corpora chosen by rules fixed in advance, three meet a registered interval test and four beat a later permutation null, and three of the four interval misses are corpora where some models have zero observed harm. Prior work proves the direction of this bias. We size it on harm and accuracy, show that it is larger under the held-out splits we measure, and bound it by optimism plus a shift-dependent regret. Scored honestly under shift, routing buys little on these benchmarks. In most pool cells the nested router serves the honest baseline&#x27;s model, and on the nearly saturated AgentDojo corpus a perfect pre-dispatch router is worth at most two points of harm. We also find a model&#x27;s expressed recognition of a late injection steerable. On held-out reruns an attacker who knows which model it faces lowers GPT-5.4&#x27;s judged recognition by 19.6 points, confirmed by an independent label. In an offline counterfactual composition into a controller, the same attack raises or lowers estimated harm depending on the fallback model. Safety routing should be evaluated under shift, against a baseline chosen without the test labels, and recognition-based defences should be scored on harm against an attacker who chooses what the model sees.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Safety routers send each request to one of several models and are judged against the best single model.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">TensorCommitments: A Lightweight Verifiable Inference for Language Models</div>
+<div class="meta-line">Authors: Oguzhan Baser, Elahe Sadeghi, Eric Wang, Nico Vergauwen, Sam Kazemian, Hong Kang, Sandeep P. Chinchali, Sriram Vishwanath</div>
+<div class="meta-line">First: 2026-02-13T05:23:31+00:00 · Latest: 2026-10-01T09:29:49+00:00</div>
+<div class="meta-line">Comments: 23 pages, 8 figures</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2602.12630v2">Abs</a> · <a href="https://arxiv.org/pdf/2602.12630v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Most large language models (LLMs) run on external clouds: users send a prompt, pay for inference, and must trust that the remote GPU executes the LLM without any adversarial tampering. We critically ask how to achieve verifiable LLM inference, where a prover (the service) must convince a verifier (the client) that an inference was run correctly without rerunning the LLM. Existing cryptographic works are too slow at the LLM scale, while non-cryptographic ones require a strong verifier GPU. We propose TensorCommitments (TCs), a tensor-native proof-of-inference scheme. TC binds the LLM inference to a commitment, an irreversible tag that breaks under tampering, organized in our multivariate Terkle Trees. For LLaMA2, TC adds only 0.97% prover and 0.12% verifier time over inference while improving robustness to tailored LLM attacks by up to 48% over the best prior work requiring a verifier GPU.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Most large language models (LLMs) run on external clouds: users send a prompt, pay for inference, and must trust that the remote GPU executes the LLM without any adversarial tampering.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Easier Said Than Done: Unpacking Intent-Behavior Gap in Jailbreaking LLM-Based Robots</div>
+<div class="meta-line">Authors: Xuancun Lu, Zhengxian Huang, Xinfeng Li, Chi Zhang, Xiaoyu Ji, Wenyuan Xu</div>
+<div class="meta-line">First: 2024-12-21T13:58:27+00:00 · Latest: 2026-10-01T01:33:58+00:00</div>
+<div class="meta-line">Comments: Accepted by NDSS 2027</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2412.16633v5">Abs</a> · <a href="https://arxiv.org/pdf/2412.16633v5">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a> · <a href="https://zjushine.github.io/poef.github.io/">Project1</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">LLM-based robots use Large Language Models (LLMs) as planners to translate natural language instructions into policies such as grasp(), move_to(), and open_gripper(). Jailbreak attacks on these robots extend the threat from generating malicious content to executing harmful behaviors. However, we find that existing jailbreak attempts against LLM-based robots that produce malicious-looking policies (intent jailbreaks) often fail to induce harmful physical actions by robots (behavior jailbreaks), due to robot-specific constraints, such as logical errors and hallucinated control APIs.
+  In this paper, we demystify the intent-behavior gap and investigate its root causes to inform effective defenses. Our measurement study finds that current LLM jailbreak methods overlook robot-specific syntax constraints (e.g., executable control APIs) and physical feasibility (e.g., ordering of policies and hardware/kinematic constraints). To bridge the gap, we introduce POEF (POlicy EFfective Jailbreak), an automated red-teaming framework that takes into account the robot-specific constraints during both the optimization and evaluation processes. Specifically, POEF employs the hidden-layer gradients from an unaligned LLM to guide the jailbreak prompt optimization and uses a multi-agent evaluator to assess the feasibility of the generated policies. Experiments on commercial robots, including the Unitree G1, the Franka robotic arm, and simulators, show that POEF achieves an 80% behavior jailbreak success rate and transfers across various LLMs. In addition, we propose two defense strategies that mitigate the behavior jailbreak risks. Our findings indicate an urgent need for stronger countermeasures before LLM-based robots are deployed at scale. The homepage is available at https://zjushine.github.io/poef.github.io/.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">LLM-based robots use Large Language Models (LLMs) as planners to translate natural language instructions into policies such as grasp(), move_to(), and open_gripper().</div>
+</details>
+</div>
+<div class="card">
+<div class="title">$D^2$-Monitor: Dynamic Safety Monitoring for Diffusion LLMs via Hesitation Signals</div>
+<div class="meta-line">Authors: Aoxi Liu, Yupeng Chen, James Oldfield, Guanzhe Hong, Junchi Yu, Baoyuan Wu, Philip Torr, Adel Bibi</div>
+<div class="meta-line">First: 2026-05-25T14:22:21+00:00 · Latest: 2026-09-30T09:49:46+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2605.25893v2">Abs</a> · <a href="https://arxiv.org/pdf/2605.25893v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Despite the emergence of diffusion large language models (D-LLMs) as an alternative to autoregressive large language models (AR-LLMs), safety monitoring for D-LLMs remains largely unexplored. Unlike AR-LLMs, D-LLMs generate text through a multi-step denoising process, exposing intermediate hidden representations that may contain safety-relevant information unavailable in standard single-step monitoring setups. Motivated by the suitability of lightweight probes for always-on monitoring, we analyze which trajectory-level signals best indicate when such probes are likely to struggle. We find that the most informative signal is safety hesitation: intermediate hidden states repeatedly falling within a small margin of the probe&#x27;s decision boundary. The number of such hesitation steps in D-LLM&#x27;s trajectory predicts probe failure effectively, providing a proxy for sample difficulty. Building on this analysis, we propose $D^2$-Monitor, in which a lightweight probe runs on every sample, producing a base prediction and a hesitation estimate that decides whether to escalate the sample to a more expressive probe. That probe is trained on trajectories with at least one hesitation step, and reads only the minimal span of those steps. Evaluated on 3 datasets (WildGuardMix, ToxicChat, OpenAI-Moderation) across 4 D-LLMs, $D^2$-Monitor achieves state-of-the-art performance with a compact parameter footprint ($\leq$ 0.93M parameters), and exhibits the best trade-off between effectiveness and efficiency relative to 8 baselines.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Despite the emergence of diffusion large language models (D-LLMs) as an alternative to autoregressive large language models (AR-LLMs), safety monitoring for D-LLMs remains largely unexplored.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Faithful Dual-constrained Erasure for Robust LLM Safety Alignment</div>
+<div class="meta-line">Authors: Jiaqing Li, Shide Zhou, Zhibo Zhang, Yuxi Li, Tianlong Yu, Kailong Wang</div>
+<div class="meta-line">First: 2026-09-30T08:29:43+00:00 · Latest: 2026-09-30T08:29:43+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.39279v1">Abs</a> · <a href="https://arxiv.org/pdf/2609.39279v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Machine unlearning has emerged as a crucial mechanism for removing hazardous knowledge and enforcing safety alignment in Large Language Models (LLMs). However, recent studies reveal a persistent security risk: unlearned models remain highly vulnerable to retraining attacks, where suppressed malicious behaviors rapidly resurface after benign fine-tuning. In this work, we investigate the optimization dynamics of unlearning and identify that this vulnerability stems from shallow alignment. Rather than effectively erasing target knowledge, models often exploit a shortcut by activating previously dormant parameters to act as spurious suppressors, forming a fragile inhibitory shell over intact malicious representations. To address this issue and enforce authentic memory deletion, we propose FDCU, a novel dual-constrained subspace projection framework. FDCU restricts parameter updates through a highly scalable, element-wise dual-masking rule: it preserves general knowledge manifolds via Fisher Information and strictly prohibits the abnormal activation of spurious suppressors via the Principle of Minimal Functional Intervention (PMFI). By reliably blocking the model&#x27;s ability to superficially hide knowledge, FDCU promotes the authentic dismantling of target representations. Extensive experiments across specific knowledge erasure and safe output control tasks demonstrate that FDCU achieves state-of-the-art robustness against retraining attacks while maintaining near-lossless general utility, ensuring durable safety for LLMs.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Machine unlearning has emerged as a crucial mechanism for removing hazardous knowledge and enforcing safety alignment in Large Language Models (LLMs).</div>
+</details>
+</div>
+<div class="card">
+<div class="title">How to Tame a Multi-Headed Hydra? Adaptive Multi-Category Safety Steering for Large Language Models</div>
+<div class="meta-line">Authors: Chenxi Wang, Ruiyang Huang, Li Huang, Yifan Wu</div>
+<div class="meta-line">First: 2026-09-28T07:53:31+00:00 · Latest: 2026-09-29T07:14:01+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.34514v2">Abs</a> · <a href="https://arxiv.org/pdf/2609.34514v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">As large language models (LLMs) become increasingly widespread, preventing unsafe responses to harmful prompts is essential for their safe deployment. Activation steering offers an approach to improving LLM safety by modifying internal activations during inference without updating model parameters. However, a single prompt can involve multiple harm categories, and steering toward safety in one category may leave harmful content from another unaddressed. Despite advances in adaptive steering, existing methods do not explicitly coordinate steering direction and strength when multiple harm categories co-occur within a single prompt. To address this problem, we propose CAM-Steer, a Category-Adaptive Multi-category Safety Steering framework. Specifically, it estimates the risk associated with each harm category by comparing the current hidden state with safe and unsafe prototypes. The estimated risks are then used to combine the safety directions for different harm categories into a single steering direction and to determine the strength of the intervention. Finally, it rotates the hidden state along the composed steering direction, with the rotation angle determined by the estimated risks, while preserving the hidden-state norm. Experiments across three LLM backbones and seven harm categories show that CAM-Steer outperforms the evaluated baselines in average defense success rate, including when categories co-occur. Further analyses support its component designs and informative risk scores, with negligible inference overhead.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">As large language models (LLMs) become increasingly widespread, preventing unsafe responses to harmful prompts is essential for their safe deployment.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">When Do Model Internals Help? Exploring the Role of Representation Engineering in LLM Safety</div>
+<div class="meta-line">Authors: Tianyi Guan, Jianhui Chen, Liangming Pan</div>
+<div class="meta-line">First: 2026-09-28T09:50:08+00:00 · Latest: 2026-09-28T09:50:08+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.34771v1">Abs</a> · <a href="https://arxiv.org/pdf/2609.34771v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Reliable AI safeguards require both control mechanisms that reduce unsafe behavior and monitoring mechanisms that detect safety risks during model interactions. Established behavioral safeguards include alignment methods that optimize model outputs and text monitors that assess interaction text. Representation engineering instead reads or modifies internal model states, but the relative strengths of these approaches remain unclear because they are often evaluated under different settings. We present a matched evaluation across two tracks. For safety control, we compare DPO, a behavioral alignment method, with three representation steering methods across robustness, practicality, and granularity. DPO provides the strongest overall control and generally improves with increasing training data, although its safety can degrade after subsequent benign fine-tuning. Representation steering remains competitive primarily in low-data settings, particularly with high-quality contrastive data. For safety monitoring, we compare representation probes with fine-tuned and open-weight text monitors across full-response detection, early detection, and computational cost. Specialized text monitors achieve the strongest overall detection accuracy, while representation probes remain competitive at substantially lower marginal cost. Finally, monitor-guided interventions recover much of the safety lost by DPO after benign fine-tuning, with little additional over-refusal. Overall, representation engineering does not generally replace behavioral safeguards, but offers practical advantages under specific conditions and can provide complementary safety benefits.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Reliable AI safeguards require both control mechanisms that reduce unsafe behavior and monitoring mechanisms that detect safety risks during model interactions.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">ArGuard Shared Task: Harmful Content Detection in Arabic Memes and LLM Prompts</div>
+<div class="meta-line">Authors: Firoj Alam, Md. Rafiul Biswas, Mohamed Bayan Kmainasi, Ali Ezzat Shahroor, Hamdy Mubarak, George Mikros, Abul Hasnat, Wajdi Zaghouani</div>
+<div class="meta-line">First: 2026-09-24T10:22:59+00:00 · Latest: 2026-09-25T14:21:28+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.29349v2">Abs</a> · <a href="https://arxiv.org/pdf/2609.29349v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">ArGuard is a shared task on harmful content detection in Arabic memes and LLM prompts. It includes two tracks: Track A focuses on multimodal hate detection in Arabic memes, while Track B addresses harmful prompt detection for Arabic LLM safety evaluation. In total, 58 teams registered, 35 participated in the final evaluation, and 27 submitted system-description papers. Participating teams explored models such as AraBERT, Jais, and Qwen3-VL. The best systems achieved macro-F1 scores of 0.823 on A1, 0.419 on A2, 0.984 on B1, and 0.790 on B2. Fine-grained meme classification in A2 was the most challenging setting, partly due to sparse labels and train-test distribution shifts.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">ArGuard is a shared task on harmful content detection in Arabic memes and LLM prompts.</div>
+</details>
+</div></div>
+    <details style="margin-top:16px" class="detail"><summary>History</summary>
+      <div class="history-list"><a href="archive/20261011_0616.html">20261011_0616</a>
+<a href="archive/20261010_0704.html">20261010_0704</a>
+<a href="archive/20261009_0740.html">20261009_0740</a>
+<a href="archive/20261008_0729.html">20261008_0729</a>
+<a href="archive/20261007_0656.html">20261007_0656</a>
+<a href="archive/20261006_0838.html">20261006_0838</a>
+<a href="archive/20261005_0614.html">20261005_0614</a>
+<a href="archive/20261004_0601.html">20261004_0601</a>
+<a href="archive/20261003_0656.html">20261003_0656</a>
+<a href="archive/20261002_0702.html">20261002_0702</a>
+<a href="archive/20261001_0651.html">20261001_0651</a>
+<a href="archive/20260930_0652.html">20260930_0652</a>
+<a href="archive/20260929_0746.html">20260929_0746</a>
+<a href="archive/20260928_0552.html">20260928_0552</a>
+<a href="archive/20260927_0554.html">20260927_0554</a>
+<a href="archive/20260926_0601.html">20260926_0601</a>
+<a href="archive/20260925_0603.html">20260925_0603</a>
+<a href="archive/20260924_0607.html">20260924_0607</a>
+<a href="archive/20260923_0550.html">20260923_0550</a>
+<a href="archive/20260922_0629.html">20260922_0629</a>
+<a href="archive/20260921_0513.html">20260921_0513</a>
+<a href="archive/20260920_0520.html">20260920_0520</a>
+<a href="archive/20260919_0528.html">20260919_0528</a>
+<a href="archive/20260918_0557.html">20260918_0557</a>
+<a href="archive/20260917_0557.html">20260917_0557</a>
+<a href="archive/20260916_0557.html">20260916_0557</a>
+<a href="archive/20260915_0620.html">20260915_0620</a>
+<a href="archive/20260913_0516.html">20260913_0516</a>
+<a href="archive/20260912_0534.html">20260912_0534</a>
+<a href="archive/20260911_0528.html">20260911_0528</a>
+<a href="archive/20260910_0532.html">20260910_0532</a>
+<a href="archive/20260909_0538.html">20260909_0538</a>
+<a href="archive/20260908_0556.html">20260908_0556</a>
+<a href="archive/20260907_0508.html">20260907_0508</a>
+<a href="archive/20260906_0458.html">20260906_0458</a>
+<a href="archive/20260905_0518.html">20260905_0518</a>
+<a href="archive/20260904_0536.html">20260904_0536</a>
+<a href="archive/20260903_0538.html">20260903_0538</a>
+<a href="archive/20260902_0538.html">20260902_0538</a>
+<a href="archive/20260901_0709.html">20260901_0709</a>
+<a href="archive/20260831_0551.html">20260831_0551</a>
+<a href="archive/20260830_0533.html">20260830_0533</a>
+<a href="archive/20260829_1001.html">20260829_1001</a>
+<a href="archive/20260828_1027.html">20260828_1027</a>
+<a href="archive/20260827_0543.html">20260827_0543</a>
+<a href="archive/20260826_0332.html">20260826_0332</a>
+<a href="archive/20260825_0330.html">20260825_0330</a>
+<a href="archive/20260824_0322.html">20260824_0322</a>
+<a href="archive/20260823_0323.html">20260823_0323</a>
+<a href="archive/20260822_0326.html">20260822_0326</a>
+<a href="archive/20260821_0332.html">20260821_0332</a>
+<a href="archive/20260820_0329.html">20260820_0329</a>
+<a href="archive/20260819_0328.html">20260819_0328</a>
+<a href="archive/20260818_0329.html">20260818_0329</a>
+<a href="archive/20260817_0322.html">20260817_0322</a>
+<a href="archive/20260816_0322.html">20260816_0322</a>
+<a href="archive/20260815_0350.html">20260815_0350</a>
+<a href="archive/20260814_0356.html">20260814_0356</a>
+<a href="archive/20260813_0401.html">20260813_0401</a>
+<a href="archive/20260812_0404.html">20260812_0404</a>
+<a href="archive/20260811_0356.html">20260811_0356</a>
+<a href="archive/20260810_0334.html">20260810_0334</a>
+<a href="archive/20260809_0330.html">20260809_0330</a>
+<a href="archive/20260808_0354.html">20260808_0354</a>
+<a href="archive/20260807_0841.html">20260807_0841</a>
+<a href="archive/20260806_0428.html">20260806_0428</a>
+<a href="archive/20260805_0426.html">20260805_0426</a>
+<a href="archive/20260804_0428.html">20260804_0428</a>
+<a href="archive/20260803_0411.html">20260803_0411</a>
+<a href="archive/20260802_0410.html">20260802_0410</a>
+<a href="archive/20260801_0421.html">20260801_0421</a>
+<a href="archive/20260731_0415.html">20260731_0415</a>
+<a href="archive/20260730_0414.html">20260730_0414</a>
+<a href="archive/20260729_0417.html">20260729_0417</a>
+<a href="archive/20260728_0423.html">20260728_0423</a>
+<a href="archive/20260727_0411.html">20260727_0411</a>
+<a href="archive/20260726_0412.html">20260726_0412</a>
+<a href="archive/20260725_0421.html">20260725_0421</a>
+<a href="archive/20260724_0413.html">20260724_0413</a>
+<a href="archive/20260723_0412.html">20260723_0412</a>
+<a href="archive/20260722_0420.html">20260722_0420</a>
+<a href="archive/20260721_0422.html">20260721_0422</a>
+<a href="archive/20260720_0408.html">20260720_0408</a>
+<a href="archive/20260719_0405.html">20260719_0405</a>
+<a href="archive/20260718_0406.html">20260718_0406</a>
+<a href="archive/20260717_0403.html">20260717_0403</a>
+<a href="archive/20260716_0410.html">20260716_0410</a>
+<a href="archive/20260715_0413.html">20260715_0413</a>
+<a href="archive/20260714_0416.html">20260714_0416</a>
+<a href="archive/20260713_0407.html">20260713_0407</a>
+<a href="archive/20260712_0407.html">20260712_0407</a>
+<a href="archive/20260711_0424.html">20260711_0424</a>
+<a href="archive/20260710_0448.html">20260710_0448</a>
+<a href="archive/20260709_0422.html">20260709_0422</a>
+<a href="archive/20260708_0450.html">20260708_0450</a>
+<a href="archive/20260707_0454.html">20260707_0454</a>
+<a href="archive/20260706_0415.html">20260706_0415</a>
+<a href="archive/20260705_0410.html">20260705_0410</a>
+<a href="archive/20260704_0415.html">20260704_0415</a>
+<a href="archive/20260703_0419.html">20260703_0419</a>
+<a href="archive/20260702_0448.html">20260702_0448</a>
+<a href="archive/20260701_0458.html">20260701_0458</a>
+<a href="archive/20260630_0450.html">20260630_0450</a>
+<a href="archive/20260629_0415.html">20260629_0415</a>
+<a href="archive/20260627_0448.html">20260627_0448</a>
+<a href="archive/20260626_0459.html">20260626_0459</a>
+<a href="archive/20260625_0450.html">20260625_0450</a>
+<a href="archive/20260624_0501.html">20260624_0501</a>
+<a href="archive/20260623_0533.html">20260623_0533</a>
+<a href="archive/20260622_0426.html">20260622_0426</a>
+<a href="archive/20260621_0416.html">20260621_0416</a>
+<a href="archive/20260620_0427.html">20260620_0427</a>
+<a href="archive/20260619_0525.html">20260619_0525</a>
+<a href="archive/20260618_0509.html">20260618_0509</a>
+<a href="archive/20260617_0543.html">20260617_0543</a>
+<a href="archive/20260616_0545.html">20260616_0545</a>
+<a href="archive/20260615_0419.html">20260615_0419</a>
+<a href="archive/20260614_0418.html">20260614_0418</a>
+<a href="archive/20260613_0503.html">20260613_0503</a>
+<a href="archive/20260612_0523.html">20260612_0523</a>
+<a href="archive/20260611_0526.html">20260611_0526</a>
+<a href="archive/20260610_0459.html">20260610_0459</a>
+<a href="archive/20260609_0512.html">20260609_0512</a>
+<a href="archive/20260608_0414.html">20260608_0414</a>
+<a href="archive/20260607_0410.html">20260607_0410</a>
+<a href="archive/20260606_0449.html">20260606_0449</a>
+<a href="archive/20260604_0551.html">20260604_0551</a>
+<a href="archive/20260603_0549.html">20260603_0549</a>
+<a href="archive/20260602_0612.html">20260602_0612</a>
+<a href="archive/20260601_0410.html">20260601_0410</a>
+<a href="archive/20260531_0411.html">20260531_0411</a>
+<a href="archive/20260530_0509.html">20260530_0509</a>
+<a href="archive/20260529_0515.html">20260529_0515</a>
+<a href="archive/20260528_0504.html">20260528_0504</a>
+<a href="archive/20260527_0457.html">20260527_0457</a>
+<a href="archive/20260526_0424.html">20260526_0424</a>
+<a href="archive/20260524_0407.html">20260524_0407</a>
+<a href="archive/20260523_0445.html">20260523_0445</a>
+<a href="archive/20260522_0452.html">20260522_0452</a>
+<a href="archive/20260521_0501.html">20260521_0501</a>
+<a href="archive/20260520_0446.html">20260520_0446</a>
+<a href="archive/20260519_0427.html">20260519_0427</a>
+<a href="archive/20260518_0406.html">20260518_0406</a>
+<a href="archive/20260517_0403.html">20260517_0403</a>
+<a href="archive/20260516_0418.html">20260516_0418</a>
+<a href="archive/20260515_0428.html">20260515_0428</a>
+<a href="archive/20260514_0448.html">20260514_0448</a>
+<a href="archive/20260513_0432.html">20260513_0432</a>
+<a href="archive/20260512_0508.html">20260512_0508</a>
+<a href="archive/20260511_0418.html">20260511_0418</a>
+<a href="archive/20260510_0421.html">20260510_0421</a>
+<a href="archive/20260509_0429.html">20260509_0429</a>
+<a href="archive/20260508_0436.html">20260508_0436</a>
+<a href="archive/20260507_0441.html">20260507_0441</a>
+<a href="archive/20260506_0431.html">20260506_0431</a>
+<a href="archive/20260505_0438.html">20260505_0438</a>
+<a href="archive/20260504_0412.html">20260504_0412</a>
+<a href="archive/20260503_0413.html">20260503_0413</a>
+<a href="archive/20260502_0426.html">20260502_0426</a>
+<a href="archive/20260501_0432.html">20260501_0432</a>
+<a href="archive/20260430_0432.html">20260430_0432</a>
+<a href="archive/20260429_0437.html">20260429_0437</a>
+<a href="archive/20260428_0431.html">20260428_0431</a>
+<a href="archive/20260427_0403.html">20260427_0403</a>
+<a href="archive/20260426_0401.html">20260426_0401</a>
+<a href="archive/20260425_0414.html">20260425_0414</a>
+<a href="archive/20260424_0428.html">20260424_0428</a>
+<a href="archive/20260423_0427.html">20260423_0427</a>
+<a href="archive/20260422_0423.html">20260422_0423</a>
+<a href="archive/20260421_0421.html">20260421_0421</a>
+<a href="archive/20260420_0356.html">20260420_0356</a>
+<a href="archive/20260419_0357.html">20260419_0357</a>
+<a href="archive/20260418_0418.html">20260418_0418</a>
+<a href="archive/20260417_0421.html">20260417_0421</a>
+<a href="archive/20260416_0422.html">20260416_0422</a>
+<a href="archive/20260415_0427.html">20260415_0427</a>
+<a href="archive/20260414_0426.html">20260414_0426</a>
+<a href="archive/20260413_0355.html">20260413_0355</a>
+<a href="archive/20260412_0351.html">20260412_0351</a>
+<a href="archive/20260411_0403.html">20260411_0403</a>
+<a href="archive/20260410_0427.html">20260410_0427</a>
+<a href="archive/20260409_0425.html">20260409_0425</a>
+<a href="archive/20260408_0418.html">20260408_0418</a>
+<a href="archive/20260407_0415.html">20260407_0415</a>
+<a href="archive/20260405_0329.html">20260405_0329</a>
+<a href="archive/20260404_0337.html">20260404_0337</a>
+<a href="archive/20260403_0411.html">20260403_0411</a>
+<a href="archive/20260401_0416.html">20260401_0416</a>
+<a href="archive/20260331_0417.html">20260331_0417</a>
+<a href="archive/20260328_0402.html">20260328_0402</a>
+<a href="archive/20260327_0415.html">20260327_0415</a>
+<a href="archive/20260326_0408.html">20260326_0408</a>
+<a href="archive/20260325_0415.html">20260325_0415</a>
+<a href="archive/20260324_0412.html">20260324_0412</a>
+<a href="archive/20260323_0341.html">20260323_0341</a>
+<a href="archive/20260322_0339.html">20260322_0339</a>
+<a href="archive/20260321_0356.html">20260321_0356</a>
+<a href="archive/20260320_0407.html">20260320_0407</a>
+<a href="archive/20260319_0409.html">20260319_0409</a>
+<a href="archive/20260318_0420.html">20260318_0420</a>
+<a href="archive/20260317_0415.html">20260317_0415</a>
+<a href="archive/20260316_0353.html">20260316_0353</a>
+<a href="archive/20260315_0345.html">20260315_0345</a>
+<a href="archive/20260314_0354.html">20260314_0354</a>
+<a href="archive/20260313_0413.html">20260313_0413</a>
+<a href="archive/20260312_0405.html">20260312_0405</a>
+<a href="archive/20260311_0409.html">20260311_0409</a>
+<a href="archive/20260310_0403.html">20260310_0403</a>
+<a href="archive/20260309_0342.html">20260309_0342</a>
+<a href="archive/20260308_0339.html">20260308_0339</a>
+<a href="archive/20260307_0356.html">20260307_0356</a>
+<a href="archive/20260306_0415.html">20260306_0415</a>
+<a href="archive/20260305_0401.html">20260305_0401</a>
+<a href="archive/20260304_0408.html">20260304_0408</a>
+<a href="archive/20260303_0403.html">20260303_0403</a>
+<a href="archive/20260302_0340.html">20260302_0340</a>
+<a href="archive/20260301_0339.html">20260301_0339</a>
+<a href="archive/20260228_0358.html">20260228_0358</a>
+<a href="archive/20260227_0406.html">20260227_0406</a>
+<a href="archive/20260226_0420.html">20260226_0420</a>
+<a href="archive/20260225_0415.html">20260225_0415</a>
+<a href="archive/20260224_0420.html">20260224_0420</a>
+<a href="archive/20260223_0342.html">20260223_0342</a>
+<a href="archive/20260222_0342.html">20260222_0342</a>
+<a href="archive/20260221_0358.html">20260221_0358</a>
+<a href="archive/20260220_0401.html">20260220_0401</a>
+<a href="archive/20260219_0413.html">20260219_0413</a>
+<a href="archive/20260218_0410.html">20260218_0410</a>
+<a href="archive/20260217_0352.html">20260217_0352</a>
+<a href="archive/20260216_0343.html">20260216_0343</a>
+<a href="archive/20260215_0341.html">20260215_0341</a>
+<a href="archive/20260213_0415.html">20260213_0415</a>
+<a href="archive/20260212_0424.html">20260212_0424</a>
+<a href="archive/20260211_0426.html">20260211_0426</a>
+<a href="archive/20260210_0424.html">20260210_0424</a>
+<a href="archive/20260209_0343.html">20260209_0343</a>
+<a href="archive/20260208_0343.html">20260208_0343</a>
+<a href="archive/20260207_0405.html">20260207_0405</a>
+<a href="archive/20260206_0402.html">20260206_0402</a>
+<a href="archive/20260205_0405.html">20260205_0405</a>
+<a href="archive/20260204_0408.html">20260204_0408</a>
+<a href="archive/20260202_0343.html">20260202_0343</a>
+<a href="archive/20260201_0339.html">20260201_0339</a>
+<a href="archive/20260131_0355.html">20260131_0355</a>
+<a href="archive/20260130_0356.html">20260130_0356</a>
+<a href="archive/20260129_0357.html">20260129_0357</a>
+<a href="archive/20260128_0405.html">20260128_0405</a>
+<a href="archive/20260127_0347.html">20260127_0347</a>
+<a href="archive/20260126_0335.html">20260126_0335</a>
+<a href="archive/20260125_0335.html">20260125_0335</a>
+<a href="archive/20260124_0345.html">20260124_0345</a>
+<a href="archive/20260123_0351.html">20260123_0351</a>
+<a href="archive/20260122_0354.html">20260122_0354</a>
+<a href="archive/20260121_0435.html">20260121_0435</a>
+<a href="archive/20260120_0341.html">20260120_0341</a>
+<a href="archive/20260119_0334.html">20260119_0334</a>
+<a href="archive/20260118_0332.html">20260118_0332</a>
+<a href="archive/20260116_0349.html">20260116_0349</a>
+<a href="archive/20260115_0347.html">20260115_0347</a>
+<a href="archive/20260114_0348.html">20260114_0348</a>
+<a href="archive/20260113_0345.html">20260113_0345</a>
+<a href="archive/20260112_0334.html">20260112_0334</a>
+<a href="archive/20260111_0338.html">20260111_0338</a>
+<a href="archive/20260110_0342.html">20260110_0342</a>
+<a href="archive/20260109_0345.html">20260109_0345</a>
+<a href="archive/20260108_0351.html">20260108_0351</a>
+<a href="archive/20260107_0343.html">20260107_0343</a>
+<a href="archive/20260106_0343.html">20260106_0343</a>
+<a href="archive/20260105_0334.html">20260105_0334</a>
+<a href="archive/20260104_0335.html">20260104_0335</a>
+<a href="archive/20260103_0345.html">20260103_0345</a>
+<a href="archive/20260102_0334.html">20260102_0334</a>
+<a href="archive/20260101_0334.html">20260101_0334</a>
+<a href="archive/20251231_0340.html">20251231_0340</a>
+<a href="archive/20251230_0340.html">20251230_0340</a>
+<a href="archive/20251229_0339.html">20251229_0339</a>
+<a href="archive/20251228_0337.html">20251228_0337</a>
+<a href="archive/20251226_0334.html">20251226_0334</a>
+<a href="archive/20251225_0335.html">20251225_0335</a>
+<a href="archive/20251224_0340.html">20251224_0340</a>
+<a href="archive/20251223_0337.html">20251223_0337</a>
+<a href="archive/20251222_0336.html">20251222_0336</a>
+<a href="archive/20251221_0337.html">20251221_0337</a>
+<a href="archive/20251220_0338.html">20251220_0338</a>
+<a href="archive/20251219_0346.html">20251219_0346</a>
+<a href="archive/20251218_0343.html">20251218_0343</a>
+<a href="archive/20251217_0352.html">20251217_0352</a>
+<a href="archive/20251216_0346.html">20251216_0346</a>
+<a href="archive/20251215_0337.html">20251215_0337</a>
+<a href="archive/20251214_0334.html">20251214_0334</a>
+<a href="archive/20251213_0347.html">20251213_0347</a>
+<a href="archive/20251212_0350.html">20251212_0350</a>
+<a href="archive/20251211_0354.html">20251211_0354</a>
+<a href="archive/20251210_0344.html">20251210_0344</a>
+<a href="archive/20251209_0348.html">20251209_0348</a>
+<a href="archive/20251208_0336.html">20251208_0336</a>
+<a href="archive/20251207_0335.html">20251207_0335</a>
+<a href="archive/20251206_0340.html">20251206_0340</a>
+<a href="archive/20251205_0346.html">20251205_0346</a>
+<a href="archive/20251204_0344.html">20251204_0344</a>
+<a href="archive/20251203_0343.html">20251203_0343</a>
+<a href="archive/20251202_0352.html">20251202_0352</a>
+<a href="archive/20251201_0334.html">20251201_0334</a>
+<a href="archive/20251130_0333.html">20251130_0333</a>
+<a href="archive/20251129_0338.html">20251129_0338</a>
+<a href="archive/20251128_0337.html">20251128_0337</a>
+<a href="archive/20251127_0339.html">20251127_0339</a>
+<a href="archive/20251126_0343.html">20251126_0343</a>
+<a href="archive/20251125_0334.html">20251125_0334</a>
+<a href="archive/20251124_0335.html">20251124_0335</a>
+<a href="archive/20251123_0334.html">20251123_0334</a>
+<a href="archive/20251122_0348.html">20251122_0348</a>
+<a href="archive/20251121_0347.html">20251121_0347</a>
+<a href="archive/20251120_0401.html">20251120_0401</a>
+<a href="archive/20251119_0350.html">20251119_0350</a>
+<a href="archive/20251118_0347.html">20251118_0347</a>
+<a href="archive/20251117_0340.html">20251117_0340</a>
+<a href="archive/20251116_0340.html">20251116_0340</a>
+<a href="archive/20251115_0313.html">20251115_0313</a>
+<a href="archive/20251114_0315.html">20251114_0315</a>
+<a href="archive/20251113_0315.html">20251113_0315</a>
+<a href="archive/20251112_0314.html">20251112_0314</a>
+<a href="archive/20251111_0349.html">20251111_0349</a>
+<a href="archive/20251110_0329.html">20251110_0329</a>
+<a href="archive/20251109_0314.html">20251109_0314</a>
+<a href="archive/20251108_0315.html">20251108_0315</a>
+<a href="archive/20251107_0317.html">20251107_0317</a>
+<a href="archive/20251106_0349.html">20251106_0349</a>
+<a href="archive/20251105_0321.html">20251105_0321</a>
+<a href="archive/20251104_1539.html">20251104_1539</a>
+<a href="archive/20251104_0324.html">20251104_0324</a>
+<a href="archive/20251103_0315.html">20251103_0315</a>
+<a href="archive/20251102_1356.html">20251102_1356</a></div>
+    </details>
+    <div class="footer">Generated by arxiv-tracker</div>
+  </div>
+</body></html>
