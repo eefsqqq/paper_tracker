@@ -74,12 +74,85 @@ summary{cursor:pointer;color:var(--acc)}
   <button class="btn" onclick="__expandAll(false)">Collapse All</button>
 </div>
 
-        <span class="badge">2026-10-14 07:12</span>
+        <span class="badge">2026-10-15 06:05</span>
       </div>
     </div>
     <div class="hr"></div>
     <div>Latest digest</div>
     <div class="row"><div class="card">
+<div class="title">Beyond Unsafe Detection: Counterfactually Anchored Evidence Attribution for Multi-Turn LLM Safety Failures</div>
+<div class="meta-line">Authors: Srinivasan Subramanian, Kazi Aminul Islam, Md. Abdullah Al Hafiz Khan</div>
+<div class="meta-line">First: 2026-08-17T00:37:56+00:00 · Latest: 2026-10-13T01:10:52+00:00</div>
+<div class="meta-line">Comments: 21 pages, 3 figures, 22 tables</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.27773v2">Abs</a> · <a href="https://arxiv.org/pdf/2609.27773v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">As Large Language Models (LLMs) move from conversational assistants to advanced agentic systems, guardrail failures can convert adversarial intents into harmful executions. However, most evaluation frameworks focus only on whether a user request is unsafe. This is insufficient for multi-turn failures, where adversarial intent may be distributed across turns and emerge only from accumulated context. This motivates us to go beyond detection to localize the evidence that pushes the conversation toward unsafe trajectories. We introduce MTAG-Bench, a multi-turn guardrail attribution dataset with behavioral validation and counterfactual supervision containing 4,167 conversations. We also introduce MTAG-Probe, a hierarchical attribution model for turn- and span-level evidence localization with conversation-level safety detection. MTAG-Probe improves turn-level F1 by 28.1 and 24.1 points (79.0% and 61.0% relative) over self-attribution by the model that produced the unsafe response and the LLM safety-judge attribution, respectively. Removing MTAG-Probe&#x27;s top-ranked evidence within budgets of 15% and 20% of user words per conversation changes 50.6% and 60.8% of Llama Guard decisions on Geometry from unsafe to safe, respectively. In full-trajectory replay, MTAG-Probe converts 84.3% of eligible unsafe final responses to safe. These results show that MTAG-Probe can provide evidence-level explanations as a practical complement to safety detection.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">As Large Language Models (LLMs) move from conversational assistants to advanced agentic systems, guardrail failures can convert adversarial intents into harmful executions.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">FinRED: An Expert-Guided Benchmark Generation and Evaluation Framework for Financial LLM Red-Teaming</div>
+<div class="meta-line">Authors: Daeyoung Park, Chaeyun Kim, Junghwan Kim, Jinyoung Jeong, Eunji Song, Yongtaek Lim, Minwoo Kim</div>
+<div class="meta-line">First: 2026-06-18T07:46:18+00:00 · Latest: 2026-10-12T08:20:34+00:00</div>
+<div class="meta-line">Comments: Accepted at IEEE ICDM 2026</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2606.19887v4">Abs</a> · <a href="https://arxiv.org/pdf/2606.19887v4">PDF</a> · <a href="https://github.com/selectstar-ai/FinRED-paper">Code1</a> · <a href="https://huggingface.co/datasets/datumo/FinRED">Code2</a> · <a href="https://huggingface.co/huggingface">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Existing safety benchmarks target general adversarial scenarios but miss finance-specific risks. Financial LLMs face regulatory compliance violations, fraud facilitation, and systemic trust erosion that require targeted evaluation. We introduce FinRED, an expert-guided red-teaming framework for financial LLM safety evaluation developed with financial experts. FinRED uses a novel two-level taxonomy mapping global standards (e.g., FATF and EU DORA) to threats ranging from regulatory evasion to complex fraud, integrated with a scalable pipeline that converts real financial documents into context-rich red-teaming Behavioral Prompts (seeds) through an expert-defined schema. Rigorous expert validation confirms seed plausibility and realism for meaningful LLM safety evaluation. We also provide an expert-validated, finance-specific rubric that goes beyond disclaimer checks, aligns more closely with human experts than static one-size-fits-all rubrics, and reduces critical false negatives from 28 to 12. Aligned with internationally adopted risk-management and information-security standards (e.g., ISO/IEC 27001), FinRED is deployed in South Korea&#x27;s Financial Security Institute (FSI) regulatory sandbox for generative AI security evaluation in real financial services. To mitigate dual-use risks, the dataset, generation pipeline, prompt template, and evaluation framework are gated for qualified researchers at https://github.com/selectstar-ai/FinRED-paper and https://huggingface.co/datasets/datumo/FinRED.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Existing safety benchmarks target general adversarial scenarios but miss finance-specific risks.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Style Over Substance: Content-Invariant Wrappers Flip LLM Safety-Judge Verdicts</div>
+<div class="meta-line">Authors: Yongxi Zhou, Wenbo Ye, Yuanzhe Liu, Zihan Dong, Junwei Yao, Jiahui Ge</div>
+<div class="meta-line">First: 2026-09-08T04:27:22+00:00 · Latest: 2026-10-12T02:16:44+00:00</div>
+<div class="meta-line">Comments: 11 pages, 4 tables. Code, wrappers, and per-verdict labels: https://github.com/Yongxi-Zhou/safety-judge-robustness. &quot;v2: expanded judge panel to 8, measured noise floors for all LLM judges, added appendices with wrapper texts and judge prompts&quot;</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.08236v2">Abs</a> · <a href="https://arxiv.org/pdf/2609.08236v2">PDF</a> · <a href="https://github.com/Yongxi-Zhou/safety-judge-robustness">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Automatic safety judges -- for example Llama Guard, or GPT-4o given a grading prompt -- produce the numbers behind reported jailbreak success rates, defense evaluations, and safety leaderboards. We ask whether these judges grade what a reply contains or how it sounds. We place a fixed piece of text before or after a model reply (a style wrapper) and leave the reply itself unchanged byte-for-byte, so any change in verdict is an error of the judge. Over 600 JailbreakBench replies (300 harmful, 300 refusals), 9 wrappers, and 8 judges, using paired tests and a measured per-judge repeat-disagreement rate (the noise floor), we find that most judges barely move but specific judges have specific, cheap blind spots. A token refusal (&quot;I can&#x27;t help with that&quot;) placed before the unchanged harmful text flips 19.9% of GPT-4o-mini&#x27;s correct &quot;unsafe&quot; verdicts to &quot;safe&quot; (noise floor 0.5%; 18.2% under majority-of-three re-scoring), yet moves Claude only 0.4%. The deployed Llama Guard 4 guard model is evaded by an &quot;educational course&quot; preface on 12.3% of harmful replies, and the flips persist across repeats, while a second deployed guard (gpt-oss-safeguard-20b) is immune. Changing only the grading prompt to ignore tone cuts the GPT-4o-mini attack roughly tenfold on the same model, so the weakness lives in the judge, not in the content. Pure tone-only decoration that adds no new claim still flips up to 2.1% of verdicts on the vulnerable judges, several times their noise floors. On this artifact set the judges also disagree about which target model is safest, and a bootstrap shows the ranking is unstable before any wrapper is added. We release the data, wrappers, code, and per-verdict labels.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Automatic safety judges -- for example Llama Guard, or GPT-4o given a grading prompt -- produce the numbers behind reported jailbreak success rates, defense evaluations, and safety leaderboards.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">XL-SafetyBench: A Country-Grounded Cross-Cultural Benchmark for LLM Safety and Cultural Sensitivity</div>
+<div class="meta-line">Authors: Dasol Choi, Eugenia Kim, Jaewon Noh, Sang Seo, Eunmi Kim, Myunggyo Oh, Yunjin Park, Brigitta Jesica Kartono, Josef Pichlmeier, Helena Berndt, Sai Krishna Mendu, Glenn Johannes Tungka, Özlem Gökçe, Suresh Gehlot, Katherine Pratt, Amanda Minnich, Haon Park</div>
+<div class="meta-line">Venue: NeurIPS 2026</div>
+<div class="meta-line">First: 2026-05-07T04:35:03+00:00 · Latest: 2026-10-10T10:52:58+00:00</div>
+<div class="meta-line">Comments: NeurIPS 2026 Evaluations &amp; Datasets Track</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2605.05662v2">Abs</a> · <a href="https://arxiv.org/pdf/2605.05662v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Current LLM safety benchmarks are predominantly English-centric and often rely on translation, failing to capture country-specific harms. Moreover, they rarely evaluate a model&#x27;s ability to detect culturally embedded sensitivities as distinct from universal harms. We introduce XL-SafetyBench, a suite of 5,500 test cases across 10 country-language pairs, comprising a Jailbreak Benchmark of country-grounded adversarial prompts and a Cultural Benchmark where local sensitivities are embedded within innocuous requests. Each item is constructed via a multi-stage pipeline that combines LLM-assisted discovery, automated validation gates, and dual independent native-speaker annotators per country. We report Attack Success Rate (ASR) alongside Neutral-Safe Rate (NSR) to separate principled refusal from non-engagement, and introduce the Cultural Sensitivity Rate (CSR) for recognizing embedded sensitivities. Evaluating 10 frontier and 27 local LLMs reveals two key findings. First, strong jailbreak robustness does not always come with strong cultural awareness, showing why the two should be evaluated separately. Second, local models exhibit a strong ASR-NSR trade-off (r = -0.81), suggesting that low attack success in several local models reflects non-engagement rather than safe refusal. XL-SafetyBench enables more nuanced, cross-cultural safety evaluation in the multilingual era.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Current LLM safety benchmarks are predominantly English-centric and often rely on translation, failing to capture country-specific harms.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Specification-Based Testing of Large Language Models</div>
+<div class="meta-line">Authors: Kausar Moshood, Jace Bolante, Roshan Aditya Murali, Manish Motwani</div>
+<div class="meta-line">First: 2026-10-10T01:17:21+00:00 · Latest: 2026-10-10T01:17:21+00:00</div>
+<div class="meta-line">Comments: 21 pages, 1 figure</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.14443v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.14443v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Model cards, system cards, and safety reports increasingly document LLM safety behaviors, yet safety evaluations typically start from predefined benchmarks rather than asking which documented claims those benchmarks actually test. We introduce LEST (LLM Evaluation through Specification-driven Testing), a framework that treats documented safety claims as specifications for black-box testing. In LEST, each claim determines which benchmark prompt tests it and whether a Refuse-to-Comply transition, where a model refuses a prompt but complies with its mutated version, counts as evidence against it. LEST mutates these prompts to search for counterexamples, manually validates each candidate, and traces validated counterexamples back to the claims they contradict. We evaluate LEST using the system cards of Claude Opus 4.8 and GPT-5.5 with 97 seed prompts from SORRY-Bench across Mental Health and Self-Harm, Harmful and Violent Content, and Fairness and Bias. Of 56 identified safety claims, 29 (51.8%) are prompt-testable, but only 17 (58.6%) are exercised by an applicable benchmark prompt. Both models refuse &gt;95% of benchmark prompts. Evaluating 1,836 mutated prompts on both models reveals 312 candidate Refuse-to-Comply transitions flagged by automated response classifiers. However, human validation confirms only 19 (6.1%) as both intent-preserving and genuinely compliant, showing automated evaluation substantially overestimates behavioral failures. Tracing these 19 transitions back to the claims reveals counterexamples for 6 of 9 covered claims for which refusal is an applicable oracle. Our results show that benchmark prompts may not be sufficient to validate all documented LLM safety behavior, and automated failure detection requires manual validation. LEST provides end-to-end traceability from natural-language safety documentation to executable tests and human-validated counterexamples.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Model cards, system cards, and safety reports increasingly document LLM safety behaviors, yet safety evaluations typically start from predefined benchmarks rather than asking which documented claims those benchmarks actually test.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">SAEs Can Improve Unlearning: Dynamic Sparse Autoencoder Guardrails for Precision Unlearning in LLMs</div>
+<div class="meta-line">Authors: Aashiq Muhamed, Jacopo Bonato, Mona Diab, Virginia Smith</div>
+<div class="meta-line">First: 2025-04-11T01:24:03+00:00 · Latest: 2026-10-10T00:07:02+00:00</div>
+<div class="meta-line">Comments: COLM 2025</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2504.08192v3">Abs</a> · <a href="https://arxiv.org/pdf/2504.08192v3">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Machine unlearning is a promising approach to improve LLM safety by removing unwanted knowledge from the model. However, prevailing gradient-based unlearning methods suffer from issues such as high computational costs, hyperparameter instability, poor sequential unlearning capability, vulnerability to relearning attacks, low data efficiency, and lack of interpretability. While Sparse Autoencoders are well-suited to improve these aspects by enabling targeted activation-based unlearning, prior approaches underperform gradient-based methods. This work demonstrates that, contrary to these earlier findings, SAEs can significantly improve unlearning when employed dynamically. We introduce $\textbf{Dynamic DAE Guardrails}$ (DSG), a novel method for precision unlearning that leverages principled feature selection and a dynamic classifier. Our experiments show DSG substantially outperforms leading unlearning methods, achieving superior forget-utility trade-offs. DSG addresses key drawbacks of gradient-based approaches for unlearning -- offering enhanced computational efficiency and stability, robust performance in sequential unlearning, stronger resistance to relearning attacks, better data efficiency including zero-shot settings, and more interpretable unlearning.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Machine unlearning is a promising approach to improve LLM safety by removing unwanted knowledge from the model.</div>
+</details>
+</div>
+<div class="card">
 <div class="title">Same Outcome, Different Evidence: Intent Recovery in LLM Safety Evaluation</div>
 <div class="meta-line">Authors: Haitong Jiang, Chunlin Liu, Sihan Tang, Chan Wu, Xiaoqing Su, Yuhong Feng</div>
 <div class="meta-line">First: 2026-10-08T11:50:32+00:00 · Latest: 2026-10-08T11:50:32+00:00</div>
@@ -246,77 +319,10 @@ summary{cursor:pointer;color:var(--acc)}
 <details class="detail"><summary>Summary / 总结</summary>
 <div class="mono">Most large language models (LLMs) run on external clouds: users send a prompt, pay for inference, and must trust that the remote GPU executes the LLM without any adversarial tampering.</div>
 </details>
-</div>
-<div class="card">
-<div class="title">Easier Said Than Done: Unpacking Intent-Behavior Gap in Jailbreaking LLM-Based Robots</div>
-<div class="meta-line">Authors: Xuancun Lu, Zhengxian Huang, Xinfeng Li, Chi Zhang, Xiaoyu Ji, Wenyuan Xu</div>
-<div class="meta-line">First: 2024-12-21T13:58:27+00:00 · Latest: 2026-10-01T01:33:58+00:00</div>
-<div class="meta-line">Comments: Accepted by NDSS 2027</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2412.16633v5">Abs</a> · <a href="https://arxiv.org/pdf/2412.16633v5">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a> · <a href="https://zjushine.github.io/poef.github.io/">Project1</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">LLM-based robots use Large Language Models (LLMs) as planners to translate natural language instructions into policies such as grasp(), move_to(), and open_gripper(). Jailbreak attacks on these robots extend the threat from generating malicious content to executing harmful behaviors. However, we find that existing jailbreak attempts against LLM-based robots that produce malicious-looking policies (intent jailbreaks) often fail to induce harmful physical actions by robots (behavior jailbreaks), due to robot-specific constraints, such as logical errors and hallucinated control APIs.
-  In this paper, we demystify the intent-behavior gap and investigate its root causes to inform effective defenses. Our measurement study finds that current LLM jailbreak methods overlook robot-specific syntax constraints (e.g., executable control APIs) and physical feasibility (e.g., ordering of policies and hardware/kinematic constraints). To bridge the gap, we introduce POEF (POlicy EFfective Jailbreak), an automated red-teaming framework that takes into account the robot-specific constraints during both the optimization and evaluation processes. Specifically, POEF employs the hidden-layer gradients from an unaligned LLM to guide the jailbreak prompt optimization and uses a multi-agent evaluator to assess the feasibility of the generated policies. Experiments on commercial robots, including the Unitree G1, the Franka robotic arm, and simulators, show that POEF achieves an 80% behavior jailbreak success rate and transfers across various LLMs. In addition, we propose two defense strategies that mitigate the behavior jailbreak risks. Our findings indicate an urgent need for stronger countermeasures before LLM-based robots are deployed at scale. The homepage is available at https://zjushine.github.io/poef.github.io/.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">LLM-based robots use Large Language Models (LLMs) as planners to translate natural language instructions into policies such as grasp(), move_to(), and open_gripper().</div>
-</details>
-</div>
-<div class="card">
-<div class="title">$D^2$-Monitor: Dynamic Safety Monitoring for Diffusion LLMs via Hesitation Signals</div>
-<div class="meta-line">Authors: Aoxi Liu, Yupeng Chen, James Oldfield, Guanzhe Hong, Junchi Yu, Baoyuan Wu, Philip Torr, Adel Bibi</div>
-<div class="meta-line">First: 2026-05-25T14:22:21+00:00 · Latest: 2026-09-30T09:49:46+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2605.25893v2">Abs</a> · <a href="https://arxiv.org/pdf/2605.25893v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Despite the emergence of diffusion large language models (D-LLMs) as an alternative to autoregressive large language models (AR-LLMs), safety monitoring for D-LLMs remains largely unexplored. Unlike AR-LLMs, D-LLMs generate text through a multi-step denoising process, exposing intermediate hidden representations that may contain safety-relevant information unavailable in standard single-step monitoring setups. Motivated by the suitability of lightweight probes for always-on monitoring, we analyze which trajectory-level signals best indicate when such probes are likely to struggle. We find that the most informative signal is safety hesitation: intermediate hidden states repeatedly falling within a small margin of the probe&#x27;s decision boundary. The number of such hesitation steps in D-LLM&#x27;s trajectory predicts probe failure effectively, providing a proxy for sample difficulty. Building on this analysis, we propose $D^2$-Monitor, in which a lightweight probe runs on every sample, producing a base prediction and a hesitation estimate that decides whether to escalate the sample to a more expressive probe. That probe is trained on trajectories with at least one hesitation step, and reads only the minimal span of those steps. Evaluated on 3 datasets (WildGuardMix, ToxicChat, OpenAI-Moderation) across 4 D-LLMs, $D^2$-Monitor achieves state-of-the-art performance with a compact parameter footprint ($\leq$ 0.93M parameters), and exhibits the best trade-off between effectiveness and efficiency relative to 8 baselines.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Despite the emergence of diffusion large language models (D-LLMs) as an alternative to autoregressive large language models (AR-LLMs), safety monitoring for D-LLMs remains largely unexplored.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">Faithful Dual-constrained Erasure for Robust LLM Safety Alignment</div>
-<div class="meta-line">Authors: Jiaqing Li, Shide Zhou, Zhibo Zhang, Yuxi Li, Tianlong Yu, Kailong Wang</div>
-<div class="meta-line">First: 2026-09-30T08:29:43+00:00 · Latest: 2026-09-30T08:29:43+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.39279v1">Abs</a> · <a href="https://arxiv.org/pdf/2609.39279v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Machine unlearning has emerged as a crucial mechanism for removing hazardous knowledge and enforcing safety alignment in Large Language Models (LLMs). However, recent studies reveal a persistent security risk: unlearned models remain highly vulnerable to retraining attacks, where suppressed malicious behaviors rapidly resurface after benign fine-tuning. In this work, we investigate the optimization dynamics of unlearning and identify that this vulnerability stems from shallow alignment. Rather than effectively erasing target knowledge, models often exploit a shortcut by activating previously dormant parameters to act as spurious suppressors, forming a fragile inhibitory shell over intact malicious representations. To address this issue and enforce authentic memory deletion, we propose FDCU, a novel dual-constrained subspace projection framework. FDCU restricts parameter updates through a highly scalable, element-wise dual-masking rule: it preserves general knowledge manifolds via Fisher Information and strictly prohibits the abnormal activation of spurious suppressors via the Principle of Minimal Functional Intervention (PMFI). By reliably blocking the model&#x27;s ability to superficially hide knowledge, FDCU promotes the authentic dismantling of target representations. Extensive experiments across specific knowledge erasure and safe output control tasks demonstrate that FDCU achieves state-of-the-art robustness against retraining attacks while maintaining near-lossless general utility, ensuring durable safety for LLMs.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Machine unlearning has emerged as a crucial mechanism for removing hazardous knowledge and enforcing safety alignment in Large Language Models (LLMs).</div>
-</details>
-</div>
-<div class="card">
-<div class="title">How to Tame a Multi-Headed Hydra? Adaptive Multi-Category Safety Steering for Large Language Models</div>
-<div class="meta-line">Authors: Chenxi Wang, Ruiyang Huang, Li Huang, Yifan Wu</div>
-<div class="meta-line">First: 2026-09-28T07:53:31+00:00 · Latest: 2026-09-29T07:14:01+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.34514v2">Abs</a> · <a href="https://arxiv.org/pdf/2609.34514v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">As large language models (LLMs) become increasingly widespread, preventing unsafe responses to harmful prompts is essential for their safe deployment. Activation steering offers an approach to improving LLM safety by modifying internal activations during inference without updating model parameters. However, a single prompt can involve multiple harm categories, and steering toward safety in one category may leave harmful content from another unaddressed. Despite advances in adaptive steering, existing methods do not explicitly coordinate steering direction and strength when multiple harm categories co-occur within a single prompt. To address this problem, we propose CAM-Steer, a Category-Adaptive Multi-category Safety Steering framework. Specifically, it estimates the risk associated with each harm category by comparing the current hidden state with safe and unsafe prototypes. The estimated risks are then used to combine the safety directions for different harm categories into a single steering direction and to determine the strength of the intervention. Finally, it rotates the hidden state along the composed steering direction, with the rotation angle determined by the estimated risks, while preserving the hidden-state norm. Experiments across three LLM backbones and seven harm categories show that CAM-Steer outperforms the evaluated baselines in average defense success rate, including when categories co-occur. Further analyses support its component designs and informative risk scores, with negligible inference overhead.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">As large language models (LLMs) become increasingly widespread, preventing unsafe responses to harmful prompts is essential for their safe deployment.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">When Do Model Internals Help? Exploring the Role of Representation Engineering in LLM Safety</div>
-<div class="meta-line">Authors: Tianyi Guan, Jianhui Chen, Liangming Pan</div>
-<div class="meta-line">First: 2026-09-28T09:50:08+00:00 · Latest: 2026-09-28T09:50:08+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.34771v1">Abs</a> · <a href="https://arxiv.org/pdf/2609.34771v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Reliable AI safeguards require both control mechanisms that reduce unsafe behavior and monitoring mechanisms that detect safety risks during model interactions. Established behavioral safeguards include alignment methods that optimize model outputs and text monitors that assess interaction text. Representation engineering instead reads or modifies internal model states, but the relative strengths of these approaches remain unclear because they are often evaluated under different settings. We present a matched evaluation across two tracks. For safety control, we compare DPO, a behavioral alignment method, with three representation steering methods across robustness, practicality, and granularity. DPO provides the strongest overall control and generally improves with increasing training data, although its safety can degrade after subsequent benign fine-tuning. Representation steering remains competitive primarily in low-data settings, particularly with high-quality contrastive data. For safety monitoring, we compare representation probes with fine-tuned and open-weight text monitors across full-response detection, early detection, and computational cost. Specialized text monitors achieve the strongest overall detection accuracy, while representation probes remain competitive at substantially lower marginal cost. Finally, monitor-guided interventions recover much of the safety lost by DPO after benign fine-tuning, with little additional over-refusal. Overall, representation engineering does not generally replace behavioral safeguards, but offers practical advantages under specific conditions and can provide complementary safety benefits.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Reliable AI safeguards require both control mechanisms that reduce unsafe behavior and monitoring mechanisms that detect safety risks during model interactions.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">ArGuard Shared Task: Harmful Content Detection in Arabic Memes and LLM Prompts</div>
-<div class="meta-line">Authors: Firoj Alam, Md. Rafiul Biswas, Mohamed Bayan Kmainasi, Ali Ezzat Shahroor, Hamdy Mubarak, George Mikros, Abul Hasnat, Wajdi Zaghouani</div>
-<div class="meta-line">First: 2026-09-24T10:22:59+00:00 · Latest: 2026-09-25T14:21:28+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.29349v2">Abs</a> · <a href="https://arxiv.org/pdf/2609.29349v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">ArGuard is a shared task on harmful content detection in Arabic memes and LLM prompts. It includes two tracks: Track A focuses on multimodal hate detection in Arabic memes, while Track B addresses harmful prompt detection for Arabic LLM safety evaluation. In total, 58 teams registered, 35 participated in the final evaluation, and 27 submitted system-description papers. Participating teams explored models such as AraBERT, Jais, and Qwen3-VL. The best systems achieved macro-F1 scores of 0.823 on A1, 0.419 on A2, 0.984 on B1, and 0.790 on B2. Fine-grained meme classification in A2 was the most challenging setting, partly due to sparse labels and train-test distribution shifts.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">ArGuard is a shared task on harmful content detection in Arabic memes and LLM prompts.</div>
-</details>
 </div></div>
     <details style="margin-top:16px" class="detail"><summary>History</summary>
-      <div class="history-list"><a href="archive/20261013_0909.html">20261013_0909</a>
+      <div class="history-list"><a href="archive/20261014_0712.html">20261014_0712</a>
+<a href="archive/20261013_0909.html">20261013_0909</a>
 <a href="archive/20261012_0642.html">20261012_0642</a>
 <a href="archive/20261011_0616.html">20261011_0616</a>
 <a href="archive/20261010_0704.html">20261010_0704</a>
