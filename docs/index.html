@@ -74,12 +74,45 @@ summary{cursor:pointer;color:var(--acc)}
   <button class="btn" onclick="__expandAll(false)">Collapse All</button>
 </div>
 
-        <span class="badge">2026-10-19 05:18</span>
+        <span class="badge">2026-10-20 06:50</span>
       </div>
     </div>
     <div class="hr"></div>
     <div>Latest digest</div>
     <div class="row"><div class="card">
+<div class="title">Monitor-Validity Failures: LLM Safety Evidence Paths at Evolving Framework Boundaries</div>
+<div class="meta-line">Authors: Junchi Liao</div>
+<div class="meta-line">First: 2026-10-16T12:09:26+00:00 · Latest: 2026-10-16T12:09:26+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.23362v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.23362v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Modern LLM applications rely on runtime monitors that inspect tool calls, traces, streams, detector outputs, and verifier inputs. This creates an interface-reliability problem: a framework path may remain operational while policy-relevant evidence never reaches its decision point. In one representative case, a regex detector returned a positive match, but the framework stranded the result before the block decision. This differs from jailbreaks and detector errors because the evidence is already recognized yet disconnected from enforcement. We study this repair-boundary signature with canary contracts: parent/fixed confirmation units that place a known payload only on the changed evidence surface and record monitor visibility together with the downstream decision for action-boundary cases. Applying the protocol to public framework repairs, we confirm 18 evidence-path failures across 11 LLM or agent safety project groups and four implementation ecosystems. Nine are established-boundary repairs, eight are new-surface policy-coverage gaps, and one is a boundary-only evidence case. Fourteen reach E1 enforcement boundaries: seven native action outcomes, six configured enforcement boundaries, and one synthetic-consumer consequence. The remaining cases affect verifier, safety-prompt, or observability channels. The cases form carrier, adapter, authority, and surface families and show how ordinary application behavior can remain intact while a safety-specific evidence path misses its decision. Exact revisions, deterministic outcomes, negative controls, and a frozen prospective audit document the confirmation rule. Monitor assumptions therefore need regression tests at the schemas, streams, tools, and adapters that frameworks evolve.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Modern LLM applications rely on runtime monitors that inspect tool calls, traces, streams, detector outputs, and verifier inputs.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Refusal Is Not Robustness: Measuring Harmful Reachability in Autoregressive Language Models</div>
+<div class="meta-line">Authors: Parv Kapoor, Teresa Fortes, Claudia Mamede, Rui Abreu, Jonathan Aldrich, Eunsuk Kang</div>
+<div class="meta-line">First: 2026-10-15T23:45:21+00:00 · Latest: 2026-10-15T23:45:21+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.22754v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.22754v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">LLM safety evaluations via jailbreaking typically index on attack success rate (ASR): whether a generated response violates safeguards. However, ASR only evaluates sampled outputs and provides little information on the underlying generation process. Autoregressive language models define distributions over possible outputs, and a sampled refusal can coexist with substantial probability mass on harmful generation paths. We study this hidden structure through bounded continuation analysis (BCA), which models autoregressive generation as a stochastic process over token prefixes and computes the finite-horizon probability that generation reaches a harmful continuation. BCA constructs a bounded continuation tree, labels terminal continuations with a semantic harm evaluator, and estimates harmful reachability using exact probabilistic model checking. BCA complements ASR by measuring how much harmful behavior remains accessible beneath a sampled safe response. This makes it useful for distinguishing models that look identical under measured ASR values, and allocating red-team effort toward regions of the generation process with greater hidden risk. Across four instruction-tuned LLMs and 100 JailbreakBench behaviors, we show that BCA effectively quantifies hidden harmful behavior and provides a useful signal to guide red teaming.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">LLM safety evaluations via jailbreaking typically index on attack success rate (ASR): whether a generated response violates safeguards.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">The LLM-Attacker: A Unified Red-Team Framework for Privacy Evaluation of Split and Distributed LLM Systems</div>
+<div class="meta-line">Authors: Georgios Politis, Evangelos Pappas</div>
+<div class="meta-line">First: 2026-10-15T22:53:45+00:00 · Latest: 2026-10-15T22:53:45+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.22722v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.22722v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Split language models keep input text on a client but send intermediate representations to a server. Attacks can reconstruct text from these messages. Comparing privacy evaluations is difficult when attackers see different messages, know different model weights or use different datasets and recovery measures. We present LLM-Attacker, a framework that records these choices and lets researchers check, compare and extend an evaluation. Compatible attacks reuse recorded messages, and their predictions are saved for independent scoring. The scoring rule requires a linked undefended reference before a defence can pass. Reports also identify attacks that remain untested. In a controlled GPT-2 experiment, adding gradients returned during training increased token recovery from 94.20% to 97.38% and exact-document recovery from 13.71% to 37.77%. The 95% interval for the token gain lay above the two-percentage-point threshold fixed before testing. This experiment is shared with a companion study; here, it tests how the evaluation responds to a change in attacker access. Further studies measure how corpus choice and compression defences affect recovery, compare an adapted published attack with its reference implementation, and test the measurement code. The framework reports implementation checks separately from measured attack effectiveness. Each privacy claim should state the attacker, dataset and scoring rule, report its controls and identify untested attacks.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Split language models keep input text on a client but send intermediate representations to a server.</div>
+</details>
+</div>
+<div class="card">
 <div class="title">In the Guise of Correction: How Framing and Cultural Adaptation Erode LLM Safety on Real-World Criminal Cases</div>
 <div class="meta-line">Authors: Mohsinul Kabir, Md. Tariquzzaman, Karam S. R. Elradie, Polydoros Giannouris, Yuechen Jiang, Shaoxiong Ji, Sophia Ananiadou</div>
 <div class="meta-line">First: 2026-10-15T12:44:04+00:00 · Latest: 2026-10-15T12:44:04+00:00</div>
@@ -283,44 +316,10 @@ summary{cursor:pointer;color:var(--acc)}
 <details class="detail"><summary>Summary / 总结</summary>
 <div class="mono">Large Language Models (LLMs) have achieved remarkable capabilities but remain vulnerable to jailbreak attacks that elicit harmful or unsafe outputs.</div>
 </details>
-</div>
-<div class="card">
-<div class="title">All you need to break LLMs are Black-Box, Adapting, Efficient, Transferable, Harmful, Applicable ... Attacks</div>
-<div class="meta-line">Authors: Vincent Limbach, Jonas Dornbusch, David Lüdke, Stephan Günnemann, Leo Schwinn</div>
-<div class="meta-line">First: 2026-06-02T13:39:15+00:00 · Latest: 2026-10-02T12:35:03+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2606.03647v2">Abs</a> · <a href="https://arxiv.org/pdf/2606.03647v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Accurately evaluating adversarial robustness is a longstanding challenge. A flawed attack design can inflate robustness estimates, making deployment risk assessment and defense comparison unreliable. Historically, standardized attacks such as AutoAttack have largely resolved this for image classifiers, providing a reliable evaluation baseline for systematic comparison across defenses. However, no equivalent exists for LLM jailbreak evaluation yet, where designing such an attack is considerably more difficult. A reliable attack must, among other things, be black-box compatible, applicable to arbitrary defense pipelines, and efficient, which no existing method jointly satisfies. We introduce Indirect Harmfulness Optimization (IHO), a masked diffusion language model attacker trained via iterative preference optimization against a harmfulness judge, requiring only black-box access to the target. The same method can be used without modification as a strong adapting attack on individual behaviors, or as an efficient amortized policy that transfers to held-out behaviors and unseen target models without fine-tuning. Even against layered defenses, such as GLM 5.3-flash served through a black-box API deploying an auxiliary detector, IHO improves attack success considerably over state-of-the-art approaches, without any defense-specific adaptation. Our results position IHO as a practical step toward the kind of standardized jailbreak evaluation that has improved reliability in the past. Code and models are available on GitHub and Hugging Face.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Accurately evaluating adversarial robustness is a longstanding challenge.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">Scalable, Transferable Meta-network for Data Selection Requires a Different Loss (and Why the Obvious Choice is Problematic)</div>
-<div class="meta-line">Authors: Zilin Du, Bowen Yang, Boyang Albert Li</div>
-<div class="meta-line">First: 2026-10-01T17:23:29+00:00 · Latest: 2026-10-01T17:23:29+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.02092v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.02092v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Data selection is critical for training large language models on massive and heterogeneous corpora. Meta-learning for Training-data Selection offers a principled alternative to heuristic scoring by learning data weights from a target validation objective, but existing methods face a trade-off between fine-grained valuation and transferability to unseen data. A natural solution is to replace per-sample weights with a selection network. However, we find that directly incorporating such a network into existing MTS objectives leads to unstable optimization and poor generalization, caused by weight suppression and persistent reliance on easy-to-learn features. To address these issues, we propose Transferable Example Scoring and Selection (TESS), a scalable data-selection framework built on a Pointwise Value Matching objective (PVM). Experiments on LLM safety and targeted instruction tuning demonstrate strong transfer across datasets, from subsets to full corpora, and from smaller to larger models.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Data selection is critical for training large language models on massive and heterogeneous corpora.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">CHILLGuard: Towards Fine-Grained Chinese LLM Safety Guardrail with Scalable Data Construction and Model-aware Preference Alignment</div>
-<div class="meta-line">Authors: Wenbo Yu, Bohua Wang, Hao Fang, Kuofeng Gao, Jingru Zeng, Xiaochen Yang, Tianyi Zhang, Xiaoxiao Ma, Jiawei Kong, Hao Wu, Bin Chen, Shu-Tao Xia, Min Zhang</div>
-<div class="meta-line">Venue: EMNLP 2026</div>
-<div class="meta-line">First: 2026-06-13T16:57:51+00:00 · Latest: 2026-10-01T13:45:00+00:00</div>
-<div class="meta-line">Comments: accepted by EMNLP 2026 findings</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2606.15396v2">Abs</a> · <a href="https://arxiv.org/pdf/2606.15396v2">PDF</a> · <a href="https://github.com/cswbyu/CHILLGuard">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Malicious content generated from large language models (LLMs) could pose severe safety risks and ethical concerns. While existing LLM safety guardrails excel in English or multilingual settings, they lack adaptation to Chinese-specific regulatory policies, cultural context, and linguistic nuances, failing to support fine-grained risk classification for diverse deployment needs. In this paper, we introduce a 5-macro, 31-micro category fine-grained risk taxonomy for Chinese scenarios, and build CHILLGuard: a dedicated Chinese LLM content safety guardrail. To address the critical scarcity of high-quality annotated Chinese safety data, we propose a scalable multi-stage data construction pipeline: we expand multi-source corpus via retrieval-augmented generation, generate implicit harmful samples through prompt engineering rewriting, and refine high-quality data via multi-model voting-based label calibration. Based on this, we build CHILLGuardTrain, a large-scale training set with 405,007 samples, and CHILLGuardTest, a rigorously curated annotated test set with 51,745 samples. We then train CHILLGuard on CHILLGuardTrain under a generator-classifier collaborative framework via Model-aware Direct Preference Optimization. Extensive experiments under multiple settings demonstrate the state-of-the-art performance of CHILLGuard, e.g., a 15.92% relative improvement of F1 score over Qwen3Guard-8B-Strict on our benchmark. We release our resources at https://github.com/cswbyu/CHILLGuard.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Malicious content generated from large language models (LLMs) could pose severe safety risks and ethical concerns.</div>
-</details>
 </div></div>
     <details style="margin-top:16px" class="detail"><summary>History</summary>
-      <div class="history-list"><a href="archive/20261018_0517.html">20261018_0517</a>
+      <div class="history-list"><a href="archive/20261019_0518.html">20261019_0518</a>
+<a href="archive/20261018_0517.html">20261018_0517</a>
 <a href="archive/20261017_0557.html">20261017_0557</a>
 <a href="archive/20261016_0559.html">20261016_0559</a>
 <a href="archive/20261015_0605.html">20261015_0605</a>
