@@ -74,12 +74,46 @@ summary{cursor:pointer;color:var(--acc)}
   <button class="btn" onclick="__expandAll(false)">Collapse All</button>
 </div>
 
-        <span class="badge">2026-10-21 06:10</span>
+        <span class="badge">2026-10-22 06:10</span>
       </div>
     </div>
     <div class="hr"></div>
     <div>Latest digest</div>
     <div class="row"><div class="card">
+<div class="title">Polarity Blindness in LLM Safety: A Systematic Study of Negation, Antonym Substitution, and Adversarial Framing</div>
+<div class="meta-line">Authors: Diego Miguel Lozano, Erik Derner, Juan Antonio Pérez-Ortiz, Nuria Oliver</div>
+<div class="meta-line">First: 2026-10-20T09:22:50+00:00 · Latest: 2026-10-20T09:22:50+00:00</div>
+<div class="meta-line">Comments: Code and data: https://github.com/dmlls/llm-safety-polarity-blindness</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.27908v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.27908v1">PDF</a> · <a href="https://github.com/dmlls/llm-safety-polarity-blindness">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Negation remains a persistent challenge for language models across NLP tasks and modalities. We show that this weakness can undermine LLM safety guardrails through a structural vulnerability we term polarity blindness: the failure to recognize harmful intent after polarity-altering linguistic transformations. We study two forms of polarity inversion: grammatical negation and antonym replacement, and use synonym replacement as a polarity-preserving control. We further test whether an adversarial textual wrapper amplifies these failures. Using a 260-prompt benchmark across 10 state-of-the-art LLMs and 3 languages (English, Spanish, Czech), stratified by harmfulness potential and evaluated on a validated 0-5 harm scale, we find that polarity blindness affects most evaluated models, with mean harm scores reaching 4.12 for the most vulnerable model. The effect persists across typologically differing negation systems, suggesting that polarity blindness reflects a broader limitation in semantic robustness rather than a language- or grammar-specific failure.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Negation remains a persistent challenge for language models across NLP tasks and modalities.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">When LLMs Manipulate: Measuring Behavioral, Social, and Temporal Effects</div>
+<div class="meta-line">Authors: Sadia Asif, Israel Antonio Rosales Laguan, Shumaila Asif, Haris Khan, Muneeb Asif, Muhammad Zeeshan Karamat</div>
+<div class="meta-line">First: 2026-10-20T03:41:05+00:00 · Latest: 2026-10-20T03:41:05+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.27573v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.27573v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Large language models (LLMs) can influence user trust and decision-making through subtle linguistic cues, yet the behavioral effects of manipulative outputs remain poorly quantified. We introduce a behavioral computing framework for measuring \textit{behavioral vulnerability}, defined as users&#x27; susceptibility to manipulative AI responses. Building on DarkPatterns-LLM benchmark, we generate controlled manipulative stimuli using Manipulation Gradient Descent (MGD), targeting biases associated with authority, urgency, and social proof. We analyze participant responses using the Multi-Stakeholder Impact Assessment Network (MSIAN) to model cross-user influence and the Temporal Harm Propagation Model (THPM) to characterize the persistence of behavioral effects over time. In a study involving 120 participants, manipulative framing produced significant changes in trust calibration and compliance ($p &lt; 0.01$), with effects also propagating across social contexts. These findings highlight the need to extend LLM safety evaluation beyond model outputs to measurable behavioral consequences and provide a computational framework for quantifying individual, social, and temporal risks arising from manipulative AI interactions.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Large language models (LLMs) can influence user trust and decision-making through subtle linguistic cues, yet the behavioral effects of manipulative outputs remain poorly quantified.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">LLM-Attack Suite: A Unified Red-Team Framework for Privacy Evaluation of Split and Distributed LLM Systems</div>
+<div class="meta-line">Authors: Georgios Politis, Evangelos Pappas</div>
+<div class="meta-line">First: 2026-10-15T22:53:45+00:00 · Latest: 2026-10-19T23:03:49+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.22722v2">Abs</a> · <a href="https://arxiv.org/pdf/2610.22722v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Split language models keep input text on a client but send intermediate representations to a server. Attacks can reconstruct text from these messages. Comparing privacy evaluations is difficult when attackers see different messages, know different model weights or use different datasets and recovery measures. We present LLM-Attack Suite, a framework that records these choices and lets researchers check, compare and extend an evaluation. Compatible attacks reuse recorded messages, and their predictions are saved for independent scoring. The scoring rule requires a linked undefended reference before a defence can pass. Reports also identify attacks that remain untested. In a controlled GPT-2 experiment, adding gradients returned during training increased token recovery from 94.20% to 97.38% and exact-document recovery from 13.71% to 37.77%. The 95% interval for the token gain lay above the two-percentage-point threshold fixed before testing. This experiment is shared with a companion study; here it tests how the evaluation responds to a change in attacker access. Further studies measure how corpus choice and compression defences affect recovery, compare an adapted published attack with its reference implementation, and test the measurement code. The framework reports implementation checks separately from measured attack effectiveness. Each privacy claim should state the attacker, dataset and scoring rule, report its controls and identify untested attacks.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Split language models keep input text on a client but send intermediate representations to a server.</div>
+</details>
+</div>
+<div class="card">
 <div class="title">Monitor-Validity Failures: LLM Safety Evidence Paths at Evolving Framework Boundaries</div>
 <div class="meta-line">Authors: Junchi Liao</div>
 <div class="meta-line">First: 2026-10-16T12:09:26+00:00 · Latest: 2026-10-16T12:09:26+00:00</div>
@@ -99,17 +133,6 @@ summary{cursor:pointer;color:var(--acc)}
 <div class="mono">LLM safety evaluations via jailbreaking typically index on attack success rate (ASR): whether a generated response violates safeguards. However, ASR only evaluates sampled outputs and provides little information on the underlying generation process. Autoregressive language models define distributions over possible outputs, and a sampled refusal can coexist with substantial probability mass on harmful generation paths. We study this hidden structure through bounded continuation analysis (BCA), which models autoregressive generation as a stochastic process over token prefixes and computes the finite-horizon probability that generation reaches a harmful continuation. BCA constructs a bounded continuation tree, labels terminal continuations with a semantic harm evaluator, and estimates harmful reachability using exact probabilistic model checking. BCA complements ASR by measuring how much harmful behavior remains accessible beneath a sampled safe response. This makes it useful for distinguishing models that look identical under measured ASR values, and allocating red-team effort toward regions of the generation process with greater hidden risk. Across four instruction-tuned LLMs and 100 JailbreakBench behaviors, we show that BCA effectively quantifies hidden harmful behavior and provides a useful signal to guide red teaming.</div></details>
 <details class="detail"><summary>Summary / 总结</summary>
 <div class="mono">LLM safety evaluations via jailbreaking typically index on attack success rate (ASR): whether a generated response violates safeguards.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">The LLM-Attacker: A Unified Red-Team Framework for Privacy Evaluation of Split and Distributed LLM Systems</div>
-<div class="meta-line">Authors: Georgios Politis, Evangelos Pappas</div>
-<div class="meta-line">First: 2026-10-15T22:53:45+00:00 · Latest: 2026-10-15T22:53:45+00:00</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.22722v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.22722v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Split language models keep input text on a client but send intermediate representations to a server. Attacks can reconstruct text from these messages. Comparing privacy evaluations is difficult when attackers see different messages, know different model weights or use different datasets and recovery measures. We present LLM-Attacker, a framework that records these choices and lets researchers check, compare and extend an evaluation. Compatible attacks reuse recorded messages, and their predictions are saved for independent scoring. The scoring rule requires a linked undefended reference before a defence can pass. Reports also identify attacks that remain untested. In a controlled GPT-2 experiment, adding gradients returned during training increased token recovery from 94.20% to 97.38% and exact-document recovery from 13.71% to 37.77%. The 95% interval for the token gain lay above the two-percentage-point threshold fixed before testing. This experiment is shared with a companion study; here, it tests how the evaluation responds to a change in attacker access. Further studies measure how corpus choice and compression defences affect recovery, compare an adapted published attack with its reference implementation, and test the measurement code. The framework reports implementation checks separately from measured attack effectiveness. Each privacy claim should state the attacker, dataset and scoring rule, report its controls and identify untested attacks.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Split language models keep input text on a client but send intermediate representations to a server.</div>
 </details>
 </div>
 <div class="card">
@@ -291,34 +314,10 @@ summary{cursor:pointer;color:var(--acc)}
 <details class="detail"><summary>Summary / 总结</summary>
 <div class="mono">Deployment-time safety methods for large language models (LLMs) are predominantly supervised and assume access to unsafe training data.</div>
 </details>
-</div>
-<div class="card">
-<div class="title">Agent MechSuits: Mechanistic Subspace Safety Steering for Multi-Turn CLI Agents</div>
-<div class="meta-line">Authors: Weidi Luo, Qiming Zhang, Yihao Quan, Mingyu Jin, Jie Cai, Chaowei Xiao, Jingcheng Niu, Zhen Xiang</div>
-<div class="meta-line">Venue: NeurIPS</div>
-<div class="meta-line">First: 2026-06-21T21:13:55+00:00 · Latest: 2026-10-05T17:21:29+00:00</div>
-<div class="meta-line">Comments: Accepted by NeurIPS&#x27;2026</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2606.22673v2">Abs</a> · <a href="https://arxiv.org/pdf/2606.22673v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Command-Line Interface (CLI) agents based on large language models (LLMs) demonstrate remarkable autonomous capabilities, but they also introduce significant safety and misuse risks during multi-turn interactions with external environments. Existing safety mechanisms mainly rely on external guardrails, which have a limited ability to perform fine-grained behavioral control during execution. Meanwhile, recent mechanistic interpretability methods for LLM safety are mostly confined to single-turn or jailbreak-style QA settings, limiting their ability to capture the evolving risk dynamics of multi-turn agent execution. In this paper, we investigate the safety of multi-turn CLI agents from an internal perspective. We propose Agent MechSuits (Mechanistic Subspace Intervention and Steering), a white-box defense framework that performs runtime safety detection and representation-level mitigation for CLI agents. Unlike conventional agent guardrails, Agent MechSuits detects harmful execution states from step-level hidden representations and mitigates unsafe behavior by intervening in a 10-dimensional subspace within a single layer. To support this research, we introduce the Mechanistic Agent Safety (MAS) benchmark, comprising comprehensively annotated multi-turn execution trajectories across 194 tasks using LLaMA-3.1-8B, Qwen-2.5-7B, and Gemma-2-9B. Extensive experiments show that Agent MechSuits achieves strong safety detection performance, provides preliminary evidence for lookahead risk anticipation, and substantially reduces harmful actions of the CLI agent, establishing a foundation for applying mechanistic interpretability to dynamic LLM agent safety.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Command-Line Interface (CLI) agents based on large language models (LLMs) demonstrate remarkable autonomous capabilities, but they also introduce significant safety and misuse risks during multi-turn interactions with external environments.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">Beyond Refusal Patterns: Safe-Role Internalization for Robust and Generalizable LLM Safety Alignment</div>
-<div class="meta-line">Authors: Jinghao Pang, Jitai Hao, Qiang Huang, Zhaochun Ren, Jun Yu</div>
-<div class="meta-line">First: 2026-10-04T15:50:42+00:00 · Latest: 2026-10-04T15:50:42+00:00</div>
-<div class="meta-line">Comments: 27 pages,7 figures, under review</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.07023v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.07023v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Large Language Models (LLMs) have achieved remarkable capabilities but remain vulnerable to jailbreak attacks that elicit harmful or unsafe outputs. Existing safety alignment approaches, including Supervised Fine-Tuning (SFT) and Reinforcement Learning from Human Feedback (RLHF), often require substantial attack-specific supervision and computational resources, while remaining susceptible to shallow safety alignment and over-refusal. To address these challenges, we introduce SSRFT(Supervised Safe-Role Fine-Tuning), the first framework that reformulates safety alignment as the internalization of a predefined safe role. SSRFT constructs a Safe-Role Question-Answer (SRQA) dataset from psychometric questions, limited jailbreak prompts, and a safe-role description. Role-consistent responses are synthesized, validated, and expanded into diverse scenarios, enabling models to internalize safety-oriented values and principles rather than explicit refusal patterns. Experiments across multiple Base and Instruct models show that SSRFT achieves more robust and generalizable safety alignment than standard SFT. SSRFT shows substantially greater robustness to prefilling attacks and better generalization to unseen jailbreak domains, while reducing over-refusal on benign queries and preserving the model&#x27;s general capabilities. These results establish safe-role internalization as an effective alternative to refusal-centric safety alignment. Warning: This paper contains examples of harmful and toxic language.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Large Language Models (LLMs) have achieved remarkable capabilities but remain vulnerable to jailbreak attacks that elicit harmful or unsafe outputs.</div>
-</details>
 </div></div>
     <details style="margin-top:16px" class="detail"><summary>History</summary>
-      <div class="history-list"><a href="archive/20261020_0650.html">20261020_0650</a>
+      <div class="history-list"><a href="archive/20261021_0610.html">20261021_0610</a>
+<a href="archive/20261020_0650.html">20261020_0650</a>
 <a href="archive/20261019_0518.html">20261019_0518</a>
 <a href="archive/20261018_0517.html">20261018_0517</a>
 <a href="archive/20261017_0557.html">20261017_0557</a>
