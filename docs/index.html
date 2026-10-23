@@ -74,12 +74,23 @@ summary{cursor:pointer;color:var(--acc)}
   <button class="btn" onclick="__expandAll(false)">Collapse All</button>
 </div>
 
-        <span class="badge">2026-10-23 06:13</span>
+        <span class="badge">2026-10-24 05:55</span>
       </div>
     </div>
     <div class="hr"></div>
     <div>Latest digest</div>
     <div class="row"><div class="card">
+<div class="title">The Price of Safety: Benign-Case Utility and Token Overhead of Memory-Poisoning Defenses in LLM Agents</div>
+<div class="meta-line">Authors: Pritom Bhowmik</div>
+<div class="meta-line">First: 2026-09-19T06:39:21+00:00 · Latest: 2026-10-22T08:33:17+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.22818v2">Abs</a> · <a href="https://arxiv.org/pdf/2609.22818v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Memory-poisoning defenses for LLM agents are typically evaluated by how well they stop attacks, even though almost all traffic they encounter is benign. We measure their cost when no attack is present. Our harness holds the memory backend, retrieval, answer prompt, and judge constant, changing only the defense. We test four defenses on half of LoCoMo: five long conversations with 750 turns and 255 questions per run, repeated three times each. Replication proved necessary: one run showed a reranker cost on adversarial questions that the other two did not. The three write-time defenses (sanitization, provenance checking, and LLM-based anomaly detection) never fired on benign traffic. We detect no accuracy cost from them at a resolution of about $\pm$4 points; anomaly detection adds 1.2% token overhead. The read-time reranker, with 2.7% token overhead, fired on 9.9% of its memory decisions and withheld memory from 45% of questions. It lowered core accuracy by 4.4 points (95% CI [-9.0, -0.05]; McNemar p = 0.064). The effect is borderline in magnitude, but its direction held across all six runs that used the reranker. A blind audit found content-based justification for only 2 of 50 sampled drops. Stacking all four defenses raised token overhead to 4.1% but did not compound the accuracy cost. In our runs, cost tracked what each defense judged and how much context it used, rather than whether it used an LLM. Attack success rate reveals none of this, so benign cost should be reported alongside it. We release the harness, labels, and per-run outputs.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Memory-poisoning defenses for LLM agents are typically evaluated by how well they stop attacks, even though almost all traffic they encounter is benign.</div>
+</details>
+</div>
+<div class="card">
 <div class="title">Quality-Diversity Red-Teaming: Automated Generation of High-Quality and Diverse Attackers for Large Language Models</div>
 <div class="meta-line">Authors: Ren-Jian Wang, Ke Xue, Zeyu Qin, Ziniu Li, Sheng Tang, Hao-Tian Li, Shengcai Liu, Zhi Yu, Yuanpeng Tan, Chao Qian</div>
 <div class="meta-line">First: 2025-06-08T13:07:41+00:00 · Latest: 2026-10-21T07:48:18+00:00</div>
@@ -301,22 +312,10 @@ summary{cursor:pointer;color:var(--acc)}
 <details class="detail"><summary>Summary / 总结</summary>
 <div class="mono">Gradient-based jailbreak suffix optimization methods typically update the suffix by retaining the candidate with the lowest current loss.</div>
 </details>
-</div>
-<div class="card">
-<div class="title">PatchBench: Measuring Collateral Damage in Activation Patching</div>
-<div class="meta-line">Authors: Alexi Canesse, Mathis Le Bail, Maël Jenny, Clément Elliker, Mahammed El Sharkawy, Sonia Vanier</div>
-<div class="meta-line">Venue: NeurIPS 2026</div>
-<div class="meta-line">First: 2026-10-07T15:43:28+00:00 · Latest: 2026-10-07T15:43:28+00:00</div>
-<div class="meta-line">Comments: Accepted to NeurIPS 2026 (Datasets and Benchmarks Track)</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.10276v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.10276v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">An LLM safety patch can pass a benchmark while still being a poor repair. This risk is especially acute for jailbreak repairs, where the goal is to correct a specific unsafe behaviour without changing unrelated behaviours. A patch may block exact evaluation prompts yet fail on close harmful variants, or suppress harmful behaviour by over-refusing benign prompts that share its wording or structure. Existing protocols primarily test whether models can be broken, while aggregate metrics (attack success, refusal rates, global capability) cannot distinguish selective repairs from broader local suppression. To address this gap, we introduce PatchBench, a benchmark of empirically observed model-specific jailbreak failures inducing actionable harmful answers. Starting from 27,870 prompts from 37 public datasets, we curate 15,314 English prompts and query 8 open-source instruction-tuned models. Combining WildGuard filtering, pairwise Elo ranking, and manual verification, we retain a curated bank of 400 high-confidence jailbreak failures. We further introduce PatchBench-Local, an evaluation protocol testing whether a patch is behaviourally precise. For each harmful source prompt, PatchBench-Local generates three families of local neighbours: harmful variants preserving malicious intent, benign prompts with matched structure, and benign prompts reusing key harmful terms. It evaluates harmful-neighbour correction and benign-neighbour preservation, distinguishing selective repair from broader local suppression. Evaluating four activation steering methods with PatchBench-Local and MMLU shows that global capability can remain nearly unchanged while local benign regressions are severe, confirming aggregate metrics miss important collateral damage. PatchBench-Local provides a more precise basis for developing and comparing jailbreak repair methods.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">An LLM safety patch can pass a benchmark while still being a poor repair.</div>
-</details>
 </div></div>
     <details style="margin-top:16px" class="detail"><summary>History</summary>
-      <div class="history-list"><a href="archive/20261022_0610.html">20261022_0610</a>
+      <div class="history-list"><a href="archive/20261023_0613.html">20261023_0613</a>
+<a href="archive/20261022_0610.html">20261022_0610</a>
 <a href="archive/20261021_0610.html">20261021_0610</a>
 <a href="archive/20261020_0650.html">20261020_0650</a>
 <a href="archive/20261019_0518.html">20261019_0518</a>
