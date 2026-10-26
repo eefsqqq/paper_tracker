@@ -74,12 +74,23 @@ summary{cursor:pointer;color:var(--acc)}
   <button class="btn" onclick="__expandAll(false)">Collapse All</button>
 </div>
 
-        <span class="badge">2026-10-26 05:30</span>
+        <span class="badge">2026-10-27 07:03</span>
       </div>
     </div>
     <div class="hr"></div>
     <div>Latest digest</div>
     <div class="row"><div class="card">
+<div class="title">Spend Where It Counts: Dynamic Budget Allocation for Multi-Turn LLM Evaluation</div>
+<div class="meta-line">Authors: Shai Feldman, Yaniv Romano</div>
+<div class="meta-line">First: 2026-05-07T17:25:15+00:00 · Latest: 2026-10-23T09:51:04+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2605.06605v7">Abs</a> · <a href="https://arxiv.org/pdf/2605.06605v7">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a> · <a href="https://shai128.github.io/dapro/">Project1</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Evaluating and predicting the performance of large language models (LLMs) in multi-turn conversational settings is critical yet computationally expensive; key events---e.g., jailbreaks or successful task completion by an agent---often emerge only after repeated interactions. These events might be rare and, under any feasible computational budget, remain unobserved. Recent conformal survival frameworks construct reliable lower predictive bounds (LPBs) on the number of iterations to trigger the event of interest, but rely on static budget allocation that prohibits adaptivity in multi-turn setups. To address this, we introduce Dynamic Allocation via PRojected Optimization (DAPRO), a theoretically valid dynamic budget allocation framework for bounding the time-to-event in multi-turn LLM interactions. We prove that DAPRO satisfies the expected budget constraint and provides distribution-free, finite-sample coverage guarantees without requiring the conditional independence between censoring and event times assumed by prior conformal survival approaches. A key theoretical contribution is a novel coverage bound that scales with the square root of the mean censoring weight over only a subset of the samples rather than the worst-case weight, yielding tighter guarantees than prior work. Furthermore, DAPRO can be employed to obtain unbiased estimates of population-level evaluation metrics, such as the jailbreak rate, under limited computing resources. Comprehensive experiments across agentic task success, LLM jailbreaks, toxic content generation, and RAG hallucinations demonstrate that DAPRO achieves coverage closer to the nominal level with lower variance than static baselines, while not exceeding the budget constraint in expectation. Project website: https://shai128.github.io/dapro/</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Evaluating and predicting the performance of large language models (LLMs) in multi-turn conversational settings is critical yet computationally expensive; key events---e.g., jailbreaks or successful task completion by an agent---often emerge only after repeated interactions.</div>
+</details>
+</div>
+<div class="card">
 <div class="title">The Price of Safety: Benign-Case Utility and Token Overhead of Memory-Poisoning Defenses in LLM Agents</div>
 <div class="meta-line">Authors: Pritom Bhowmik</div>
 <div class="meta-line">First: 2026-09-19T06:39:21+00:00 · Latest: 2026-10-22T08:33:17+00:00</div>
@@ -111,6 +122,18 @@ summary{cursor:pointer;color:var(--acc)}
 <div class="mono">Current LLM safety benchmarks predominantly rely on binary safe or unsafe labels, lacking explanatory depth and suffering from low consistency across automated judges. To address this, we introduce DiagSafe, a diagnostic evaluation framework that moves beyond binary classification by employing prompt-level rubrics. Grounded in globally applicable AI safety policies, each rubric provides explicit criteria along two dimensions: safety, which targets concrete harms with specific exemptions to suppress false positives, and usefulness, which independently evaluates instruction fulfillment. To ensure a robust and realistic evaluation, we construct a bilingual (English-Chinese) benchmark grounded in a comprehensive 84-label safety taxonomy, consisting of two subsets: DiagBase, which covers single- and multi-turn prompts with direct harmful queries and template-based jailbreaks, and DiagAttack, which embeds harmful intents into complex instruction-following tasks to form challenging instruction attacks. Extensive experiments demonstrate that DiagSafe significantly enhances the reliability of LLM-as-a-judge evaluation, achieving 95.34% agreement with human annotations -- substantially higher than the 69%-87% achieved by the baselines -- and high inter-judge consistency (Cohen&#x27;s $κ$ = 0.864). Furthermore, applying our framework reveals that leading LLMs differ markedly in their unsafe rates, and each model also exhibits unique vulnerabilities along different dimensions. In addition, we observe that models are particularly susceptible in Chinese and multi-turn contexts. Ultimately, DiagSafe provides a reliable and explainable tool for auditing and optimizing LLM alignment.</div></details>
 <details class="detail"><summary>Summary / 总结</summary>
 <div class="mono">Current LLM safety benchmarks predominantly rely on binary safe or unsafe labels, lacking explanatory depth and suffering from low consistency across automated judges.</div>
+</details>
+</div>
+<div class="card">
+<div class="title">Fooling LLM Safety Guards into Judging the Wrong Text</div>
+<div class="meta-line">Authors: Utkarsh Kanwat</div>
+<div class="meta-line">First: 2026-10-20T22:00:29+00:00 · Latest: 2026-10-20T22:00:29+00:00</div>
+<div class="meta-line">Comments: 21 pages (13 main body), 2 figures, 8 tables. Code: https://github.com/ukanwat/guardrebind ; model: https://huggingface.co/ukanwat/shieldstral-1.0-3b-rebinding-fix</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.31695v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.31695v1">PDF</a> · <a href="https://github.com/ukanwat/guardrebind">Code1</a> · <a href="https://huggingface.co/ukanwat/shieldstral-1.0-3b-rebinding-fix">Code2</a> · <a href="https://huggingface.co/huggingface">Code3</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">Safety guards check content before an LLM application acts on it, and most paste that content into a plain-text prompt. Content that imitates the prompt can append a second task, and the guard answers that one instead. We call this target rebinding. Our explanation is that the guard grades the last complete task in its input, here a harmless decoy, so the harmful request goes through unchanged. In a pre-registered test, an appended forged query and decoy clear all 75 held-out AdvBench requests that Shieldstral-1.0-3B flags. The guard is not persuaded: a directive to ignore the text above clears none of them, and in a follow-up run a harmful decoy stops the attack. On our GuardRebind benchmark, each of five guards has an attack family, chosen per guard, that clears at least 93% of its flagged items. Rebinding explains this best on Shieldstral and gpt-oss-safeguard; on ShieldGemma and Llama Guard 3, generic evasion and trailing text respectively do part of the work, and Qwen3Guard falls mainly to a forgery of its whole task. Training the guard to score content no lower than its most harmful part cuts attack success from 75% to 0.8-1.6% on attack families, decoys and forged queries held out of training. All of these attacks append the forged structure after the request, and we added the held-out-decoy evaluation after a first round of test runs. Clean AUROC falls by at most 0.01, but our test of non-inferiority is inconclusive. A score-guided search still beats this trained guard on 47 of 50 items, usually by placing forged structure before the request. On about half of the items where the search wins, the same search also finds benign text, with no forged structure, that clears the guard.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">Safety guards check content before an LLM application acts on it, and most paste that content into a plain-text prompt.</div>
 </details>
 </div>
 <div class="card">
@@ -287,34 +310,10 @@ summary{cursor:pointer;color:var(--acc)}
 <details class="detail"><summary>Summary / 总结</summary>
 <div class="mono">Safety evaluations of large language models commonly summarize harmful-output behavior with attack success rate (ASR).</div>
 </details>
-</div>
-<div class="card">
-<div class="title">Pretext: Defeating Malicious Skill Detection Frameworks for AI Agents</div>
-<div class="meta-line">Authors: Tobias Kaiser, Aritra Dhar</div>
-<div class="meta-line">Venue: NeurIPS 2026</div>
-<div class="meta-line">First: 2026-09-30T12:26:33+00:00 · Latest: 2026-10-08T08:23:49+00:00</div>
-<div class="meta-line">Comments: Accepted in AIWild@NeurIPS 2026</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2609.39607v2">Abs</a> · <a href="https://arxiv.org/pdf/2609.39607v2">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Skills extend an agent&#x27;s capabilities by injecting instructions and information into the context, and are widely used by agents such as OpenClaw and Claude Code. Prior work shows third-party marketplaces host malicious skills that give attackers direct influence over the victim&#x27;s agent. The emerging defense scans skills before installation, pairing deterministic static checks with an LLM-based semantic judge, as in NVIDIA&#x27;s SkillSpector. We show that such defenses fall to an attacker who knows the detector. Our white-box LLM attacker, Pretext, iteratively crafts skills that evade detection while still delivering the payload and performing the benign task: moving the payload from code into natural language leaves static analysis inert, while framing it as the skill&#x27;s legitimate purpose and splitting instructions across files keeps the LLM stage below its blocking threshold. Across three open-source models, Pretext achieves up to 97\% and 77\% against a frozen detector and a co-adaptive one, respectively, revealing major gaps in current skill scanners.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Skills extend an agent&#x27;s capabilities by injecting instructions and information into the context, and are widely used by agents such as OpenClaw and Claude Code.</div>
-</details>
-</div>
-<div class="card">
-<div class="title">TACS: Trajectory-Aware Candidate Selection for LLM Jailbreak Suffix Optimization</div>
-<div class="meta-line">Authors: Shiliang Xiao</div>
-<div class="meta-line">First: 2026-08-30T05:18:28+00:00 · Latest: 2026-10-07T16:21:07+00:00</div>
-<div class="meta-line">Comments: We identified an error in the theoretical analysis, which affects the validity of the main conclusions of the manuscript. Since the current version does not adequately support this conclusion, we have decided to withdraw the paper</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2608.29564v3">Abs</a> · <a href="https://arxiv.org/pdf/2608.29564v3">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Gradient-based jailbreak suffix optimization methods typically update the suffix by retaining the candidate with the lowest current loss. We show that this seemingly natural design is fundamentally myopic: candidates that look better under the current-step proxy often fail to produce better jailbreak outcomes later in the search, revealing a form of selection-stage reward hacking. This suggests that candidate selection, rather than candidate generation alone, is a hidden bottleneck in suffix optimization. To address this issue, we propose TACS, a trajectory-aware candidate selection framework for jailbreak suffix optimization. Instead of selecting candidates solely by their immediate loss, TACS augments per-step evaluation with a trajectory-aware proxy and stabilizes selection with reference-policy regularization and a discriminator-estimated chi-squared correction, encouraging choices that remain effective beyond the current step. Experiments on HarmBench show that TACS consistently outperforms strong baselines under the same search budget, substantially improving attack success rates while exhibiting more stable optimization behavior throughout the search. Our findings highlight that mitigating selection-stage reward hacking caused by myopic candidate selection is critical for improving jailbreak suffix optimization.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Gradient-based jailbreak suffix optimization methods typically update the suffix by retaining the candidate with the lowest current loss.</div>
-</details>
 </div></div>
     <details style="margin-top:16px" class="detail"><summary>History</summary>
-      <div class="history-list"><a href="archive/20261025_0526.html">20261025_0526</a>
+      <div class="history-list"><a href="archive/20261026_0530.html">20261026_0530</a>
+<a href="archive/20261025_0526.html">20261025_0526</a>
 <a href="archive/20261024_0555.html">20261024_0555</a>
 <a href="archive/20261023_0613.html">20261023_0613</a>
 <a href="archive/20261022_0610.html">20261022_0610</a>
