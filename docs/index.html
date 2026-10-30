@@ -74,12 +74,23 @@ summary{cursor:pointer;color:var(--acc)}
   <button class="btn" onclick="__expandAll(false)">Collapse All</button>
 </div>
 
-        <span class="badge">2026-10-30 07:07</span>
+        <span class="badge">2026-10-31 06:49</span>
       </div>
     </div>
     <div class="hr"></div>
     <div>Latest digest</div>
     <div class="row"><div class="card">
+<div class="title">Rethinking LLM Jailbreak Evaluation: Continuous Risk Landscapes Beyond Binary Outcomes</div>
+<div class="meta-line">Authors: Yukai Zhou, Wenjie Wang</div>
+<div class="meta-line">First: 2026-10-28T10:23:27+00:00 · Latest: 2026-10-28T10:23:27+00:00</div>
+<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.38595v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.38595v1">PDF</a> · <a href="https://huggingface.co/huggingface">Code1</a> · <a href="https://huggingface.co/docs/hub/spaces">Code2</a></div>
+<details class="detail"><summary>Abstract</summary>
+<div class="mono">A binary success indicator is a natural representation for discriminative tasks such as image classification under adversarial perturbations, where each input is mapped to a single prediction. However, generative tasks are fundamentally different: an LLM jailbreak prompt induces a distribution over open-ended trajectories, while a sampled response reveals only one path. Yet LLM jailbreak evaluation typically retains the binary response indicator underlying attack success rate, obscuring the surrounding structure of possible generations. We introduce a continuous, context-conditioned risk landscape over first-token branches, estimated by fixing candidate openings and repeatedly sampling their continuations. This continuous risk-landscape perspective reveals two complementary properties: current decoder exposure and safe rerouting capacity, which have been obscured by binary-indicator-based ASR. The resulting representation also provides a common basis for comparing clean prompts, attacked variants, and attack strength against a known adaptive defense. Across multiple target models and jailbreak attacks, we uncover risky branches beneath apparently safe outputs, identify qualitatively different ways attacks reshape the model&#x27;s opening distribution, and show that attacks strongest before a defense do not necessarily remain the strongest after the adaptive defense reacts. These findings recast jailbreaks as deformations of the surrounding continuation-risk landscape, establishing a more informative foundation for understanding jailbreak behavior and developing safer language models.</div></details>
+<details class="detail"><summary>Summary / 总结</summary>
+<div class="mono">A binary success indicator is a natural representation for discriminative tasks such as image classification under adversarial perturbations, where each input is mapped to a single prediction.</div>
+</details>
+</div>
+<div class="card">
 <div class="title">Spend Where It Counts: Dynamic Budget Allocation for Multi-Turn LLM Evaluation</div>
 <div class="meta-line">Authors: Shai Feldman, Yaniv Romano</div>
 <div class="meta-line">First: 2026-05-07T17:25:15+00:00 · Latest: 2026-10-23T09:51:04+00:00</div>
@@ -298,21 +309,10 @@ summary{cursor:pointer;color:var(--acc)}
 <details class="detail"><summary>Summary / 总结</summary>
 <div class="mono">Machine unlearning is a promising approach to improve LLM safety by removing unwanted knowledge from the model.</div>
 </details>
-</div>
-<div class="card">
-<div class="title">Same Outcome, Different Evidence: Intent Recovery in LLM Safety Evaluation</div>
-<div class="meta-line">Authors: Haitong Jiang, Chunlin Liu, Sihan Tang, Chan Wu, Xiaoqing Su, Yuhong Feng</div>
-<div class="meta-line">First: 2026-10-08T11:50:32+00:00 · Latest: 2026-10-08T11:50:32+00:00</div>
-<div class="meta-line">Comments: 12 pages, 2 figures. Code and experiment inputs: https://github.com/kevinjiang0121-cyber/IRIS</div>
-<div class="links" style="margin-top:8px"><a href="https://arxiv.org/abs/2610.11766v1">Abs</a> · <a href="https://arxiv.org/pdf/2610.11766v1">PDF</a> · <a href="https://github.com/kevinjiang0121-cyber/IRIS">Code1</a> · <a href="https://huggingface.co/huggingface">Code2</a> · <a href="https://huggingface.co/docs/hub/spaces">Code3</a></div>
-<details class="detail"><summary>Abstract</summary>
-<div class="mono">Safety evaluations of large language models commonly summarize harmful-output behavior with attack success rate (ASR). Yet the same non-harmful outcome can arise for very different reasons. A model may recover a harmful task and refuse it, fail to recover the task, or respond to something else entirely. Distinguishing these cases becomes especially important under intent-obscuring prompts, where a low ASR does not reveal whether the evaluated task was actually engaged. To make this distinction explicit, we pair ASR with operative understanding rate (UR), which measures whether a response both identifies the evaluated task and treats it as the task to be answered. Across interfaces, this paired view reveals substantial variation hidden by ASR: similar ASR values can correspond to sharply different recovery rates. Controlled English reconstructions show that recovery consistently improves as compressed prompts become more explicit, whereas ASR does not follow the same pattern. A complementary contrast comes from FormalLogic, where high recovery can still coincide with frequent harmful assistance. Together, these results show that non-harmful outcomes are not equally informative about model safety, motivating the joint reporting of intent recovery and ASR in LLM safety evaluation. Code and experiment inputs are available at https://github.com/kevinjiang0121-cyber/IRIS.</div></details>
-<details class="detail"><summary>Summary / 总结</summary>
-<div class="mono">Safety evaluations of large language models commonly summarize harmful-output behavior with attack success rate (ASR).</div>
-</details>
 </div></div>
     <details style="margin-top:16px" class="detail"><summary>History</summary>
-      <div class="history-list"><a href="archive/20261029_0658.html">20261029_0658</a>
+      <div class="history-list"><a href="archive/20261030_0707.html">20261030_0707</a>
+<a href="archive/20261029_0658.html">20261029_0658</a>
 <a href="archive/20261028_0653.html">20261028_0653</a>
 <a href="archive/20261027_0703.html">20261027_0703</a>
 <a href="archive/20261026_0530.html">20261026_0530</a>
